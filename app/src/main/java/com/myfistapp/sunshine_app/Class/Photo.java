@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Class;
 
 public class Photo {
     private int resourceId;

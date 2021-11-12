@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
+import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
+import com.myfistapp.sunshine_app.Helper.ManagementCart;
+import com.myfistapp.sunshine_app.R;
 
 import java.text.DecimalFormat;
 

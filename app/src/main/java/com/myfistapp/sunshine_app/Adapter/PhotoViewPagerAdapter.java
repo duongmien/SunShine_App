@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.myfistapp.sunshine_app.Class.Photo;
+import com.myfistapp.sunshine_app.R;
 
 import java.util.List;
 

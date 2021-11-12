@@ -11,52 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SunShine_App">
         <activity
-        android:name=".Activity.TrangChu"
-        android:exported="true" />
-        <activity
-            android:name=".Activity.YeuThich"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.ThongBao"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.Splash"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.LienHe"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.ThanhToan"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.GioHang"
-            android:exported="true" />
-        <activity
             android:name=".Activity.ThongTinCaNhan"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.DangKy"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.DiaChi"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.Introduction"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".Activity.DangNhap"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.SanPham"
-            android:exported="true" />
-        <activity
-            android:name=".Activity.MainActivity"
             android:exported="true" />
     </application>
 

@@ -1,18 +1,16 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.myfistapp.sunshine_app.R;
+import com.myfistapp.sunshine_app.Adapter.ViewPageAdapter;
 
 public class Introduction extends AppCompatActivity {
     ViewPager mSliderViewPager;

@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.myfistapp.sunshine_app.R;
 
 public class DangNhap extends AppCompatActivity {
     ImageView img_login, img_ig, img_fb, img_gg;

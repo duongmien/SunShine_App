@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF4E1"
-    tools:context=".Introduction">
+    tools:context=".Activity.Introduction">
     <Button
         android:id="@+id/skipbtn"
         android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.myfistapp.sunshine_app.R;
 
 public class ViewPageAdapter extends PagerAdapter {
     Context context;

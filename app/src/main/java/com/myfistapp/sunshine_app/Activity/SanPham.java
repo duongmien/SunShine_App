@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.myfistapp.sunshine_app.Helper.ManagementCart;
+import com.myfistapp.sunshine_app.R;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 
 
 import java.text.DecimalFormat;

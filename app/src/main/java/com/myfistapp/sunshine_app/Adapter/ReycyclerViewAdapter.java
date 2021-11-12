@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Adapter;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.myfistapp.sunshine_app.Activity.SanPham;
+import com.myfistapp.sunshine_app.R;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 
 
 import java.util.ArrayList;

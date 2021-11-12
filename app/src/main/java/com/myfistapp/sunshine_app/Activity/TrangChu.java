@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.myfistapp.sunshine_app.Class.Photo;
+import com.myfistapp.sunshine_app.Adapter.PhotoViewPagerAdapter;
+import com.myfistapp.sunshine_app.R;
+import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 
 import java.util.ArrayList;
 import java.util.List;

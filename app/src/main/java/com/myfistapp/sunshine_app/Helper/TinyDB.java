@@ -19,7 +19,7 @@
  *  and unicode 2017 that are used for separating the items in a list.
  */
 
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Helper;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -32,6 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Class;
 
 public class DiaChiChiTiet {
     private String name;

@@ -1,10 +1,12 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Helper;
 
 
 import android.content.Context;
 import android.widget.Toast;
 
 
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 

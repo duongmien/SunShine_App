@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TrangChu">
+    tools:context=".Activity.TrangChu">
 
     <RelativeLayout
         android:id="@+id/header_search"
