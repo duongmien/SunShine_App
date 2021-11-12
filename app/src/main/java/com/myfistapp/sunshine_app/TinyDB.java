@@ -32,7 +32,6 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.myfistapp.food_order_app.Class.SanPhamDomain;
 
 import java.io.File;
 import java.io.FileOutputStream;

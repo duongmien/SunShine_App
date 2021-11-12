@@ -10,13 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SunShine_App">
         <activity
-            android:name=".DangKy"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Introduction"
+            android:name=".TrangChu"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
