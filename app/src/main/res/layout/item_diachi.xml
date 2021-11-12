@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/lo_itdc_item">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:weightSum="4">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:layout_gravity="left|top">
+            <TextView
+                android:id="@+id/tv_itdc_stt"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_buttom_nho"></TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.2"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_itdc_hoten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nguyễn Thị Khánh Hạ"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"></TextView>
+            <TextView
+                android:id="@+id/tv_itdc_sdt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="0593716485"
+                android:textSize="16dp"></TextView>
+            <TextView
+                android:id="@+id/tv_itdc_sonha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="02 Thanh Sơn"
+                android:textSize="16dp"></TextView>
+            <TextView
+                android:id="@+id/tv_itdc_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Thanh Bình, Hải Châu, Đà Nẵng"
+                android:textSize="16dp"></TextView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/orange"></View>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
