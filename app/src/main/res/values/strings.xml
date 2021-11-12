@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SunShine_App</string>
+    <string name="heading1">Trời mưa rồi, ngại ra đường quá, ăn món gì đây nhỉ?</string>
+    <string name="heading2">Aaaaa, đã có Sunshine, order món ngay nào!</string>
+    <string name="heading3">Sunshine đang chuẩn bị món bạn order đây ạ!</string>
+    <string name="heading4">Shipper đang giao đồ ăn nóng hổi đến cho bạn, bạn nhớ nhận điện thoại nhé!</string>
 </resources>
