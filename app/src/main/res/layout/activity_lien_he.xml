@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80E8E8E8"
+    android:orientation="vertical"
+    tools:context=".LienHe">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/opensans"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="ĐỊA CHỈ"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/opensans"
+        android:text="Liên hệ"
+        android:textSize="16sp" />
+
+
+    <EditText
+        android:id="@+id/txt_ten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/opensans"
+        android:hint="Họ và tên"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:padding="10dp"
+        app:srcCompat="@color/xam" />
+
+    <EditText
+        android:id="@+id/txt_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/opensans"
+        android:hint="Số điện thoại"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/opensans"
+        android:text="Địa chỉ"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/txt_diachi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:drawableEnd="@drawable/ic_arrow_forward"
+        android:fontFamily="@font/opensans"
+        android:hint="Tỉnh/Thành phố, Quận/Huyện, Phường,Xã"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:padding="10dp"
+        app:srcCompat="@color/xam" />
+
+    <EditText
+        android:id="@+id/txt_sonha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/opensans"
+        android:hint="Tên đường, Số nhà"
+        android:padding="10dp"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/btn_hoanthanh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navmenu"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_orange_button"
+        android:fontFamily="@font/opensans"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="HOÀN THÀNH"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
