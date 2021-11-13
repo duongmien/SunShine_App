@@ -1,6 +1,8 @@
 package com.myfistapp.sunshine_app.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
@@ -29,7 +31,6 @@ public class YeuThich extends AppCompatActivity {
         recyclerViewFavorite();
     }
 
-
     private void bottomNavigation() {
         FloatingActionButton floatingActionButton = findViewById(R.id.card_btn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
@@ -37,41 +38,41 @@ public class YeuThich extends AppCompatActivity {
         LinearLayout notiBtn = findViewById(R.id.notBtn);
         LinearLayout proBtn = findViewById(R.id.proBtn);
 
-//        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(YeuThich.this, GioHang.class));
-//            }
-//        });
-//
-//        homeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(YeuThich.this, TrangChu.class));
-//            }
-//        });
-//
-//        favBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(YeuThich.this, YeuThich.class));
-//            }
-//        });
-//
-//        notiBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(YeuThich.this, ThongBao.class));
-//            }
-//        });
-//
-//        proBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(YeuThich.this, ThongTinCaNhan.class));
-//            }
-//        });
-//
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(YeuThich.this, GioHang.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(YeuThich.this, TrangChu.class));
+            }
+        });
+
+        favBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(YeuThich.this, YeuThich.class));
+            }
+        });
+
+        notiBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(YeuThich.this, ThongBao.class));
+            }
+        });
+
+        proBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(YeuThich.this, TrangCaNhan.class));
+            }
+        });
+
    }
 
     private void recyclerViewFavorite() {

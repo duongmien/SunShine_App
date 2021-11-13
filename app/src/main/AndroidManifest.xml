@@ -53,8 +53,32 @@
             android:name=".Activity.SanPham"
             android:exported="true" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Activity.TrangCaNhan"
             android:exported="true" />
+        <activity
+            android:name=".Activity.ThongTinCaNhanH2"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ThietLapMatKhau"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ThemDiaChi"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SuaDiaChi"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.LichSuMuaHang"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DiaChiGiaoHang"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChinhSuaThongTin"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChiTietDonHang"
+            android:exported="false" />
     </application>
 
 </manifest>
