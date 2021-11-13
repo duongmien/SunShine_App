@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +24,7 @@ public class TrangCaNhan extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         AnhXa();
         OnTab();
+        bottomNavigation();
 
     }
 
@@ -85,6 +87,7 @@ public class TrangCaNhan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Thoat();
+
             }
         });
     }
@@ -123,9 +126,11 @@ public class TrangCaNhan extends AppCompatActivity {
         alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-//                Intent intent = new Intent(TrangCaNhan.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
+                SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferences.edit();
+                editor.putString("remember","false");
+                editor.apply();
+                startActivity(new Intent(TrangCaNhan.this, DangNhap.class));
             }
         });
 
@@ -135,7 +140,48 @@ public class TrangCaNhan extends AppCompatActivity {
 
             }
         });
-
         alert.show();
     }
+        private void bottomNavigation() {
+            FloatingActionButton floatingActionButton = findViewById(R.id.card_btn);
+            LinearLayout homeBtn = findViewById(R.id.homeBtn);
+            LinearLayout favBtn = findViewById(R.id.favBtn);
+            LinearLayout notiBtn = findViewById(R.id.notBtn);
+            LinearLayout proBtn = findViewById(R.id.proBtn);
+
+            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(TrangCaNhan.this, GioHang.class));
+                }
+            });
+
+            homeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(TrangCaNhan.this, TrangChu.class));
+                }
+            });
+
+            favBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(TrangCaNhan.this, YeuThich.class));
+                }
+            });
+
+            notiBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(TrangCaNhan.this, ThongBao.class));
+                }
+            });
+
+            proBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(TrangCaNhan.this, TrangCaNhan.class));
+                }
+            });
+        }
 }

@@ -246,21 +246,24 @@
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true">
+
         <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="#ffffff"
             app:elevation="100px"
-            android:id="@+id/app_bar"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
             app:fabCradleVerticalOffset="6dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -385,6 +388,7 @@
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/card_btn"
             android:layout_width="wrap_content"
