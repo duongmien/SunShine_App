@@ -106,7 +106,7 @@ public class TrangChu extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangChu.class));
+                startActivity(new Intent(TrangChu.this, GioHang.class));
             }
         });
 
@@ -120,21 +120,21 @@ public class TrangChu extends AppCompatActivity {
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangChu.class));
+                startActivity(new Intent(TrangChu.this, YeuThich.class));
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangChu.class));
+                startActivity(new Intent(TrangChu.this, ThongBao.class));
             }
         });
 
         proBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangChu.class));
+                startActivity(new Intent(TrangChu.this, TrangCaNhan.class));
             }
         });
 

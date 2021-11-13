@@ -2,6 +2,7 @@ package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -10,15 +11,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
+import com.google.android.material.navigation.NavigationBarView;
 import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
+import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 import com.myfistapp.sunshine_app.R;
+import com.myfistapp.sunshine_app.Activity.TrangCaNhan;
 
 import java.text.DecimalFormat;
 
@@ -44,12 +49,12 @@ public class GioHang extends AppCompatActivity {
         Intent intent = getIntent();
         String Pttt = intent.getStringExtra("PTTT");
         if (Pttt!=""){
-        pttt.setText(Pttt);}
+            pttt.setText(Pttt);}
 
         Intent intent2 = getIntent();
         String lhe = intent2.getStringExtra("LienHe");
         if(lhe!=""){
-        diachi.setText(lhe);}
+            diachi.setText(lhe);}
 
         initList();
         calculateCard();
@@ -127,28 +132,28 @@ public class GioHang extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, GioHang.class));
+                startActivity(new Intent(GioHang.this, TrangChu.class));
             }
         });
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, GioHang.class));
+                startActivity(new Intent(GioHang.this, YeuThich.class));
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, GioHang.class));
+                startActivity(new Intent(GioHang.this, ThongBao.class));
             }
         });
 
         proBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, GioHang.class));
+                startActivity(new Intent(GioHang.this, TrangCaNhan.class));
             }
         });
     }

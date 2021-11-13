@@ -1,16 +1,17 @@
 package com.myfistapp.sunshine_app.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.myfistapp.sunshine_app.R;
 
@@ -23,8 +24,9 @@ public class DangKy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_dang_ky);
-        //        Set Animation
+//        Set Animation
         topAnim= AnimationUtils.loadAnimation(this, R.anim.top_ani);
         bottomAnim= AnimationUtils.loadAnimation(this, R.anim.bottom_ani);
         leftAnim= AnimationUtils.loadAnimation(this, R.anim.left_ani);
@@ -48,6 +50,13 @@ public class DangKy extends AppCompatActivity {
         pass.setAnimation(leftAnim);
         bt_singup.setAnimation(leftAnim);
         text_signin.setAnimation(bottomAnim);
-
+        text_signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),DangNhap.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

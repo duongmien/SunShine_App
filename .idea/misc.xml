@@ -3,18 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_arrow_back.xml" value="0.22864583333333333" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_arrow_down.xml" value="0.22864583333333333" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.22864583333333333" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_arrow_right.xml" value="0.22864583333333333" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_chi_tiet_don_hang.xml" value="0.18" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_chinh_sua_thong_tin.xml" value="0.2125" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_dia_chi_giao_hang.xml" value="0.25" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_lich_su_mua_hang.xml" value="0.2125" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_sua_dia_chi.xml" value="0.2125" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_them_dia_chi.xml" value="0.2125" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_thong_tin_ca_nhan_h2.xml" value="0.2125" />
-        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/item_chitietdonhang.xml" value="0.5" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable-v24/ic_nav_cart.xml" value="0.25462962962962965" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable/ic_nav_cart.xml" value="0.25462962962962965" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable/ic_star.xml" value="0.14635416666666667" />
@@ -22,6 +10,7 @@
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/activity_main.xml" value="0.1265625" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/activity_san_pham.xml" value="0.25416666666666665" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/activity_thong_tin_ca_nhan_h2.xml" value="0.2171875" />
+        <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/activity_trang_ca_nhan.xml" value="0.25416666666666665" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/activity_yeu_thich.xml" value="0.1265625" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/holder_danhsach_sanpham.xml" value="0.13020833333333334" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/layout/slider_layout.xml" value="0.25416666666666665" />
