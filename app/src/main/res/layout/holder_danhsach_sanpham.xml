@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/img_sanpham_giohang"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/ratestar"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/img_sanpham_giohang"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-15dp"
+        android:src="@drawable/img_rate_fivestar" />
+
+    <TextView
+        android:id="@+id/txt_tensanpham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_sanpham_giohang"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/dancingscript"
+        android:text="Vidu"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>

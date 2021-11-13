@@ -1,8 +1,10 @@
-package com.myfistapp.sunshine_app;
+package com.myfistapp.sunshine_app.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.myfistapp.sunshine_app.R;
 
 public class MainActivity extends AppCompatActivity {
 

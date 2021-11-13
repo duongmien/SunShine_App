@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DangNhap">
+
+    <ImageView
+        android:id="@+id/img_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-400dp"
+        android:src="@drawable/img_icon_login" />
+
+    <TextView
+        android:id="@+id/textDN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:fontFamily="@font/opensans"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="#FF6838"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textDN"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:width="330dp"
+        android:height="60dp"
+        android:background="@drawable/bg_edit_text_border"
+        android:fontFamily="@font/opensans"
+        android:hint="Nhập username hoặc email..."
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:width="330dp"
+        android:height="60dp"
+        android:background="@drawable/bg_edit_text_border"
+        android:fontFamily="@font/opensans"
+        android:hint="Nhập password..."
+        android:inputType="textPassword"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" />
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkbox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:width="330dp"
+        android:height="55dp"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/opensans"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/opensans"
+        android:text="Nhớ tài khoản"
+        android:textColor="#FF6838" />
+
+    <ImageView
+        android:id="@+id/img_gg"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/bt_login"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/img_IG"
+        android:src="@drawable/img_con_gg" />
+
+    <ImageView
+        android:id="@+id/img_IG"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/bt_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/img_icon_ig" />
+
+    <ImageView
+        android:id="@+id/img_fb"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/bt_login"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/img_IG"
+        android:src="@drawable/img_icon_fb" />
+
+    <TextView
+        android:id="@+id/quenmatkhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_IG"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/opensans"
+        android:text="Quên mật khẩu?"
+        android:textColor="#FF6838"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quenmatkhau"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/text_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans"
+            android:text="Nhấn vào đây"
+            android:textColor="#FF6838"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_singup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans"
+            android:layout_toRightOf="@id/text_signup"
+            android:text=" nếu bạn chưa có tài khoản"
+            android:textColor="#747d8c"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
