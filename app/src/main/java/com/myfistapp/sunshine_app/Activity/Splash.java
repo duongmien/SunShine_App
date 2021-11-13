@@ -45,7 +45,7 @@ public class Splash extends AppCompatActivity {
         SharedPreferences preferences= getSharedPreferences("checkbox",MODE_PRIVATE);
         String state_checkbox= preferences.getString("remember","");
         if(state_checkbox.equals("true")){
-            Intent intent= new Intent(Splash.this,Splash.class);
+            Intent intent= new Intent(Splash.this,TrangChu.class);
             startActivity(intent);
         }else if (state_checkbox.equals("false")){
             Toast.makeText(this,"Please Sign in",Toast.LENGTH_SHORT).show();
@@ -54,7 +54,7 @@ public class Splash extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Splash.class);
+                Intent intent = new Intent(getApplicationContext(),DangNhap.class);
                 startActivity(intent);
                 finish();
             }
@@ -62,7 +62,7 @@ public class Splash extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Splash.class);
+                Intent intent = new Intent(getApplicationContext(),DangKy.class);
                 startActivity(intent);
                 finish();
             }

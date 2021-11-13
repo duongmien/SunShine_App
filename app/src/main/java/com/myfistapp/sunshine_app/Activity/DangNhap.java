@@ -73,7 +73,7 @@ public class DangNhap extends AppCompatActivity {
         text_sigup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),DangNhap.class);
+                Intent intent = new Intent(getApplicationContext(),DangKy.class);
                 startActivity(intent);
                 finish();
             }
