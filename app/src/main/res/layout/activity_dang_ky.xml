@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="-450dp"
         android:src="@drawable/img_singup" />
-
     <TextView
         android:id="@+id/textDK"
         android:layout_width="wrap_content"
@@ -31,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textDK"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="10dp"
         android:width="330dp"
         android:height="60dp"
         android:background="@drawable/bg_edit_text_border"
@@ -42,67 +41,72 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:width="330dp"
-        android:height="60dp"
-        android:background="@drawable/bg_edit_text_border"
-        android:fontFamily="@font/opensans"
-        android:hint="Nhập username..."
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp" />
 
-    <EditText
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/email"
+            android:layout_marginTop="10dp"
+            android:width="330dp"
+            android:height="60dp"
+            android:background="@drawable/bg_edit_text_border"
+            android:fontFamily="@font/opensans"
+            android:hint="Nhập username..."
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_width="330dp"
+        app:passwordToggleEnabled="true"
+        app:hintEnabled="false"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:width="330dp"
-        android:height="60dp"
-        android:background="@drawable/bg_edit_text_border"
-        android:fontFamily="@font/opensans"
-        android:hint="Nhập password..."
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp" />
+        android:layout_below="@id/username">
 
-    <EditText
+        <EditText
+            android:id="@+id/edit_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="330dp"
+            android:height="60dp"
+            android:background="@drawable/bg_edit_text_border"
+            android:fontFamily="@font/opensans"
+            android:hint="Nhập password..."
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/check_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pass"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:width="330dp"
-        android:height="60dp"
-        android:background="@drawable/bg_edit_text_border"
-        android:fontFamily="@font/opensans"
-        android:hint="Nhập lại password..."
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp">
+        android:layout_below="@id/pass">
 
-    </EditText>
-    <ImageView
-        android:id="@+id/eye"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/check_pass"
-        android:layout_below="@id/pass"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="-40dp"
-        android:src="@drawable/ic_eye" />
+        <EditText
+            android:id="@+id/edit_checkpass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pass"
+            android:width="330dp"
+            android:height="60dp"
+            android:background="@drawable/bg_edit_text_border"
+            android:fontFamily="@font/opensans"
+            android:hint="Nhập lại password..."
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/bt_singup"
@@ -119,14 +123,13 @@
         android:textColor="@color/white"
         android:textSize="23dp"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/text_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bt_singup"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/opensans"
         android:text="Đăng nhập với tài khoản đã có"
         android:textColor="#FF6838"
