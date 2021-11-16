@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,16 +15,22 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.myfistapp.sunshine_app.Class.Photo;
 import com.myfistapp.sunshine_app.Adapter.PhotoViewPagerAdapter;
-import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
+import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Class.Photo;
 import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.Sanpham;
+import com.myfistapp.sunshine_app.R;
 
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrangChu extends AppCompatActivity {
     private RecyclerView.Adapter  adapter;
@@ -194,19 +201,35 @@ public class TrangChu extends AppCompatActivity {
         recyclerViewPopularList = findViewById(R.id.recycleview_danhsach);
         recyclerViewPopularList.setLayoutManager(new GridLayoutManager(this,2));
 
-        ArrayList<SanPhamDomain> danhsachsanpham = new ArrayList<>();
-        danhsachsanpham.add(new SanPhamDomain("Salad Trứng","img_favorite_food_1","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","30","328","79000","4.9"));
-        danhsachsanpham.add(new SanPhamDomain("Mì Ý Rigatoni","img_favorite_food_2","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","20","111","98000","4.0"));
-        danhsachsanpham.add(new SanPhamDomain("Chicken Hamburger","img_favorite_food_3","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","15","33","45000","4.9"));
-        danhsachsanpham.add(new SanPhamDomain("Salad Cá Hồi","img_favorite_food_4","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","35","123","23000","5"));
-        danhsachsanpham.add(new SanPhamDomain("Bánh Muffin","img_favorite_food_5","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","25","532","41000","3.9"));
-        danhsachsanpham.add(new SanPhamDomain("Nước ép dưa hấu","img_favorite_food_6","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","10","123","12000","4.9"));
-        danhsachsanpham.add(new SanPhamDomain("Trái cây mix","img_favorite_food_7","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","30","112","44000","4.9"));
-        danhsachsanpham.add(new SanPhamDomain("Nghêu sốt bơ tỏi","img_favorite_food_8","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","20","423","22000","5"));
+
+//        danhsachsanpham.add(new SanPhamDomain("Salad Trứng","img_favorite_food_1","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","30","328","79000","4.9"));
+//        danhsachsanpham.add(new SanPhamDomain("Mì Ý Rigatoni","img_favorite_food_2","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","20","111","98000","4.0"));
+//        danhsachsanpham.add(new SanPhamDomain("Chicken Hamburger","img_favorite_food_3","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","15","33","45000","4.9"));
+//        danhsachsanpham.add(new SanPhamDomain("Salad Cá Hồi","img_favorite_food_4","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","35","123","23000","5"));
+//        danhsachsanpham.add(new SanPhamDomain("Bánh Muffin","img_favorite_food_5","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","25","532","41000","3.9"));
+//        danhsachsanpham.add(new SanPhamDomain("Nước ép dưa hấu","img_favorite_food_6","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","10","123","12000","4.9"));
+//        danhsachsanpham.add(new SanPhamDomain("Trái cây mix","img_favorite_food_7","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","30","112","44000","4.9"));
+//        danhsachsanpham.add(new SanPhamDomain("Nghêu sốt bơ tỏi","img_favorite_food_8","Salad trứng thơm ngon với các nguyên liệu organic phù hợp với chế độ ăn kiêng ít dầu mỡ. Thành phần: xà lách, dầu ô liu, trứng, vừng...","20","423","22000","5"));
+
+        ApiService.apiService.showitem().enqueue(new Callback<ArrayList<SanPhamDomain>>() {
+            @Override
+            public void onResponse(Call<ArrayList<SanPhamDomain>> call, Response<ArrayList<SanPhamDomain>> response) {
+                Toast.makeText(TrangChu.this,"Show thanh cong", Toast.LENGTH_SHORT).show();
+                ArrayList<SanPhamDomain> danhsachsanpham = response.body();
+                adapter = new ReycyclerViewAdapter(danhsachsanpham);
+                recyclerViewPopularList.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<SanPhamDomain>> call, Throwable t) {
+                Toast.makeText(TrangChu.this,"Show that bai", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        
+        
 
 
-        adapter = new ReycyclerViewAdapter(danhsachsanpham);
-        recyclerViewPopularList.setAdapter(adapter);
 
     }
 

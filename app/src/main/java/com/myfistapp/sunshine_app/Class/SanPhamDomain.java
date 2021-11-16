@@ -1,14 +1,42 @@
 package com.myfistapp.sunshine_app.Class;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class SanPhamDomain implements Serializable {
+
+
+
+    private int idsp;
+
+    public int getIdsp() {
+        return idsp;
+    }
+
+    public void setIdsp(int idsp) {
+        this.idsp = idsp;
+    }
+
+    public int getIddm() {
+        return iddm;
+    }
+
+    public void setIddm(int iddm) {
+        this.iddm = iddm;
+    }
+
+    private int iddm;
+    @SerializedName("tensp")
     private String tensanpham;
-    private String anhsanpham;
+    @SerializedName("motasp")
     private String thongtinsanpham;
-    private String thoigian;
-    private String kcal;
+    @SerializedName("anhsp")
+    private String anhsanpham;
+    @SerializedName("gia")
     private String giasanpham;
+    private String kcal;
+    private String thoigian;
     private int soluongdathang;
     private String danhgiasanpham;
 
