@@ -3,19 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/drawable/ic_notifications.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_chi_tiet_don_hang.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_chinh_sua_thong_tin.xml" value="0.4" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_dia_chi_giao_hang.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_lich_su_mua_hang.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_sua_dia_chi.xml" value="0.12335359675785208" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_them_dia_chi.xml" value="0.11651469098277609" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_thiet_lap_mat_khau.xml" value="0.12335359675785208" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_thong_tin_ca_nhan_h2.xml" value="0.11651469098277609" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/activity_trang_ca_nhan.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/item_chitietdonhang.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/item_diachi.xml" value="0.1" />
-        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/SunShine_App/app/src/main/res/layout/item_lichsumuahang.xml" value="0.1" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_chi_tiet_don_hang.xml" value="0.17300724637681159" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_lich_su_mua_hang.xml" value="0.17300724637681159" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_sua_dia_chi.xml" value="0.17300724637681159" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_them_dia_chi.xml" value="0.17300724637681159" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_thong_tin_ca_nhan_h2.xml" value="0.17300724637681159" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/activity_trang_ca_nhan.xml" value="0.1793478260869565" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/item_chitietdonhang.xml" value="0.1793478260869565" />
+        <entry key="..\:/Nam3/LapTrinhDiDong/Teams/New folder/Clone/SunShine_App/app/src/main/res/layout/item_lichsumuahang.xml" value="0.1793478260869565" />
       </map>
     </option>
   </component>

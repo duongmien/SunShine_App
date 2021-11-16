@@ -93,11 +93,11 @@ public class LichSuMuaHang extends AppCompatActivity implements DonHang2Adapter.
     public ArrayList<SanPhamMua> getListSanPham() {
         ArrayList<SanPhamMua> list = new ArrayList<>();
 
-        list.add(new SanPhamMua("sp01", "Soda Chanh", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.sodachanh, 2));
-        list.add(new SanPhamMua("sp01", "Soda Chanh", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.sodachanh, 2));
-        list.add(new SanPhamMua("sp01", "Soda Chanh", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.sodachanh, 2));
-        list.add(new SanPhamMua("sp01", "Soda Chanh", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.sodachanh, 2));
-        list.add(new SanPhamMua("sp01", "Soda Chanh", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.sodachanh, 2));
+        list.add(new SanPhamMua("sp01", "Sinh tố hoa quả", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.img_tu_sinhtohoaqua, 2));
+        list.add(new SanPhamMua("sp01", "Salad gà", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.img_ga_saladga, 2));
+        list.add(new SanPhamMua("sp01", "Soda dưa hấu", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.img_tu_sodaduahau, 2));
+        list.add(new SanPhamMua("sp01", "Sữa chua kem dâu", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.img_tu_suachuakemdau, 2));
+        list.add(new SanPhamMua("sp01", "Sandwich gà", "bla bla bla", "20000", "120", "30", "dm01", R.drawable.img_ga_sandwichga, 2));
 
         return list;
     }

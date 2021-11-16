@@ -290,60 +290,65 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/orange"></LinearLayout>
+                android:background="@color/orange"></View>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/image47"></ImageView>
+                android:orientation="vertical">
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="10dp">
-                    <TextView
+                    android:layout_marginTop="15dp">
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/image47"></ImageView>
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Danh sách sản phẩm"
-                        android:textSize="18dp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"></TextView>
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Danh sách sản phẩm"
+                            android:textSize="18dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
                 </LinearLayout>
 
-            </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcv_ctdh_listsp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_ctdh_listsp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:weightSum="2">
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Thành tiền"
-                    android:textColor="@color/orange"></TextView>
-                <TextView
-                    android:id="@+id/tv_ctdh_tongtien"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="155.000đ"></TextView>
+                    android:layout_marginTop="10dp"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Thành tiền"
+                        android:textColor="@color/orange"></TextView>
+                    <TextView
+                        android:id="@+id/tv_ctdh_tongtien"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="155.000đ"></TextView>
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

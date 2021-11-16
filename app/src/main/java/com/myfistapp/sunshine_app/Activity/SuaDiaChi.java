@@ -98,10 +98,10 @@ public class SuaDiaChi extends AppCompatActivity {
 
         //set dữ liệu spinner huyện
         ArrayList<String> listHuyen = new ArrayList<>();
-        listHuyen.add("Đà Nẵng");
-        listHuyen.add("Quảng Nam");
-        listHuyen.add("Quảng Ngãi");
-        listHuyen.add("Quảng Trị");
+        listHuyen.add("Hải Châu");
+        listHuyen.add("Thanh Khê");
+        listHuyen.add("Sơn Trà");
+        listHuyen.add("Ngũ Hành Sơn");
 
         ArrayAdapter<String> adapterHuyen = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, listHuyen);
         spn_huyen.setAdapter(adapterHuyen);
@@ -109,10 +109,10 @@ public class SuaDiaChi extends AppCompatActivity {
 
         //set dữ liệu spinner xã
         ArrayList<String> listXa = new ArrayList<>();
-        listXa.add("Đà Nẵng");
-        listXa.add("Quảng Nam");
-        listXa.add("Quảng Ngãi");
-        listXa.add("Quảng Trị");
+        listXa.add("Thanh Bình");
+        listXa.add("Thanh Bình 2");
+        listXa.add("Thanh Bình 3");
+        listXa.add("Thanh Bình 4");
 
         ArrayAdapter<String> adapterXa = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, listXa);
         spn_xa.setAdapter(adapterXa);
