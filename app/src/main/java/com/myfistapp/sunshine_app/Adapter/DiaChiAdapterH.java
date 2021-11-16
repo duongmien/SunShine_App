@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.myfistapp.sunshine_app.Class.DiaChi;
 import com.myfistapp.sunshine_app.R;
 
@@ -21,6 +23,7 @@ public class DiaChiAdapterH extends RecyclerView.Adapter<DiaChiAdapterH.DiaChiHo
     private Context context;
     private ArrayList<DiaChi> mlist;
     private ItemClick itemClick;
+    private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
     public DiaChiAdapterH(Context context, ItemClick itemClick) {
 
@@ -49,23 +52,26 @@ public class DiaChiAdapterH extends RecyclerView.Adapter<DiaChiAdapterH.DiaChiHo
             return;
         }
 
+        viewBinderHelper.bind(holder.swipeRevealLayout, diaChi.getTen());
+
         holder.tv_ten.setText(diaChi.getTen());
         holder.tv_sdt.setText(diaChi.getSdt());
         holder.tv_sonha.setText(diaChi.getSonha());
         holder.tv_all.setText(diaChi.getXa() + ", " + diaChi.getHuyen() + ", " + diaChi.getTinh());
         holder.tv_stt.setText(position + 1 + "");
 
-        holder.lo_item.setOnClickListener(new View.OnClickListener() {
+        holder.swipeRevealLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 itemClick.onItemClick(mlist.get(position));
             }
         });
 
-        holder.lo_item.setOnLongClickListener(new View.OnLongClickListener() {
+        holder.lo_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
-                return false;
+            public void onClick(View v) {
+                mlist.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getPosition());
             }
         });
     }
@@ -81,7 +87,8 @@ public class DiaChiAdapterH extends RecyclerView.Adapter<DiaChiAdapterH.DiaChiHo
     public class DiaChiHolder extends RecyclerView.ViewHolder {
 
         private TextView tv_ten, tv_sdt, tv_sonha, tv_all, tv_stt;
-        private LinearLayout lo_item;
+        private LinearLayout lo_item, lo_xoa;
+        private SwipeRevealLayout swipeRevealLayout;
         public DiaChiHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -90,7 +97,8 @@ public class DiaChiAdapterH extends RecyclerView.Adapter<DiaChiAdapterH.DiaChiHo
             tv_sonha = itemView.findViewById(R.id.tv_itdc_sonha);
             tv_all = itemView.findViewById(R.id.tv_itdc_all);
             tv_stt = itemView.findViewById(R.id.tv_itdc_stt);
-            lo_item = itemView.findViewById(R.id.lo_itdc_item);
+            swipeRevealLayout = itemView.findViewById(R.id.lo_itdc_item);
+            lo_xoa = itemView.findViewById(R.id.lo_itdc_xoa);
         }
     }
 
