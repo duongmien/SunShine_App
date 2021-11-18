@@ -12,7 +12,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.SunShine_App">
         <activity
-            android:name=".Activity.TrangChu"
+            android:name=".Activity.Introduction"
             android:exported="true" />
         <activity
             android:name=".Activity.YeuThich"
@@ -39,7 +39,7 @@
             android:name=".Activity.DiaChi"
             android:exported="true" />
         <activity
-            android:name=".Activity.Introduction"
+            android:name=".Activity.TrangChu"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,80 +3,84 @@ package com.myfistapp.sunshine_app.Model;
 import com.google.gson.annotations.SerializedName;
 
 public class Sanpham {
-    private int idsp;
-    private int iddm;
-    @SerializedName("tensp")
-    private String tensanpham;
-    @SerializedName("motasp")
-    private String thongtinsanpham;
-    @SerializedName("anhsp")
-    private String anhsanpham;
-    @SerializedName("gia")
-    private String giasanpham;
-    private String kcal;
-    private String thoigian;
 
-    public int getIdsp() {
-        return idsp;
+
+    private int IDSP;
+
+    private int IDDM;
+
+    private String TenSanPham;
+
+    private String MoTaSanPham;
+
+    private String Anh;
+
+    private String GiaSanPham;
+
+    private String Kcal;
+    private String ThoiGianCheBien;
+
+    public int getIDSP() {
+        return IDSP;
     }
 
-    public void setIdsp(int idsp) {
-        this.idsp = idsp;
+    public void setIDSP(int IDSP) {
+        this.IDSP = IDSP;
     }
 
-    public int getIddm() {
-        return iddm;
+    public int getIDDM() {
+        return IDDM;
     }
 
-    public void setIddm(int iddm) {
-        this.iddm = iddm;
+    public void setIDDM(int IDDM) {
+        this.IDDM = IDDM;
     }
 
-    public String getTensanpham() {
-        return tensanpham;
+    public String getTenSanPham() {
+        return TenSanPham;
     }
 
-    public void setTensanpham(String tensanpham) {
-        this.tensanpham = tensanpham;
+    public void setTenSanPham(String tenSanPham) {
+        TenSanPham = tenSanPham;
     }
 
-    public String getThongtinsanpham() {
-        return thongtinsanpham;
+    public String getMoTaSanPham() {
+        return MoTaSanPham;
     }
 
-    public void setThongtinsanpham(String thongtinsanpham) {
-        this.thongtinsanpham = thongtinsanpham;
+    public void setMoTaSanPham(String moTaSanPham) {
+        MoTaSanPham = moTaSanPham;
     }
 
-    public String getAnhsanpham() {
-        return anhsanpham;
+    public String getAnh() {
+        return Anh;
     }
 
-    public void setAnhsanpham(String anhsanpham) {
-        this.anhsanpham = anhsanpham;
+    public void setAnh(String anh) {
+        Anh = anh;
     }
 
-    public String getGiasanpham() {
-        return giasanpham;
+    public String getGiaSanPham() {
+        return GiaSanPham;
     }
 
-    public void setGiasanpham(String giasanpham) {
-        this.giasanpham = giasanpham;
+    public void setGiaSanPham(String giaSanPham) {
+        GiaSanPham = giaSanPham;
     }
 
     public String getKcal() {
-        return kcal;
+        return Kcal;
     }
 
     public void setKcal(String kcal) {
-        this.kcal = kcal;
+        Kcal = kcal;
     }
 
-    public String getThoigian() {
-        return thoigian;
+    public String getThoiGianCheBien() {
+        return ThoiGianCheBien;
     }
 
-    public void setThoigian(String thoigian) {
-        this.thoigian = thoigian;
+    public void setThoiGianCheBien(String thoiGianCheBien) {
+        ThoiGianCheBien = thoiGianCheBien;
     }
 }

@@ -135,7 +135,15 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/opensans"
-                            android:text="4.9"
+                            android:text=""
+                            android:textSize="24sp" />
+                        <TextView
+                            android:id="@+id/txt_danhgia2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/opensans"
+                            android:text="5.0"
                             android:textSize="24sp" />
 
                     </LinearLayout>
