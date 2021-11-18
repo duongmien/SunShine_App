@@ -27,13 +27,13 @@ public class SanPhamDomain implements Serializable {
     }
 
     private int iddm;
-    @SerializedName("tensp")
+    @SerializedName("tensanpham")
     private String tensanpham;
-    @SerializedName("motasp")
+    @SerializedName("motasanpham")
     private String thongtinsanpham;
-    @SerializedName("anhsp")
+    @SerializedName("anh")
     private String anhsanpham;
-    @SerializedName("gia")
+    @SerializedName("giasanpham")
     private String giasanpham;
     private String kcal;
     private String thoigian;
