@@ -16,17 +16,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
+import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.KhachHang;
 import com.myfistapp.sunshine_app.R;
 
-public class DangNhap extends AppCompatActivity {
-    ImageView img_login, img_ig, img_fb, img_gg;
-    TextView text_singin, text_sigup, text_forgetpass;
-    EditText username, pass;
-    Button bt_signin;
-    Animation topAnim, bottomAnim, leftAnim;
-    CheckBox checkbox;
+import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class DangNhap extends AppCompatActivity {
+    private ImageView img_login, img_ig, img_fb, img_gg;
+    private TextView text_singin, text_sigup, text_forgetpass;
+    private EditText username, pass;
+    private Button bt_signin;
+    private Animation topAnim, bottomAnim, leftAnim;
+    private CheckBox checkbox;
+    private ArrayList<KhachHang> khachHangs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,12 +90,14 @@ public class DangNhap extends AppCompatActivity {
                 finish();
             }
         });
+        khachHangs = new ArrayList<>();
+        getlistuser();
+
+
         bt_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
-                startActivity(intent);
-                finish();
+                clicklogin();
             }
         });
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -105,5 +118,44 @@ public class DangNhap extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void clicklogin(){
+        String strUsername=username.getText().toString().trim();
+        String strPassword=pass.getText().toString().trim();
+
+        if(khachHangs == null || khachHangs.isEmpty()){
+            return;
+        }
+        boolean isHasUser = false;
+        for(KhachHang khachHang:khachHangs){
+            if(strUsername.equals(khachHang.getTendangnhap()) && strPassword.equals(khachHang.getMatkhau())){
+                isHasUser = true;
+                break;
+            }
+        }
+        if (isHasUser){
+            Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Toast.makeText(DangNhap.this,"Đăng nhập thất bại!!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getlistuser() {
+
+        ApiService.apiService.showuser().enqueue(new Callback<ArrayList<KhachHang>>() {
+            @Override
+            public void onResponse(Call<ArrayList<KhachHang>> call, Response<ArrayList<KhachHang>> response) {
+                khachHangs = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<KhachHang>> call, Throwable t) {
+
+            }
+        });
+
     }
 }

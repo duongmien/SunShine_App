@@ -32,4 +32,7 @@ public interface ApiService {
     @POST("khachhang/add")
     Call<KhachHang> createUser(@Body KhachHang khachHang);
 
+    @GET("khachhang/list")
+    Call<ArrayList<KhachHang>> showuser();
+
 }
