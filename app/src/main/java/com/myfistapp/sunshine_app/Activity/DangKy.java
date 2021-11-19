@@ -12,12 +12,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Model.KhachHang;
 import com.myfistapp.sunshine_app.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DangKy extends AppCompatActivity {
     TextView text_signin, text_signup;
@@ -97,18 +104,46 @@ public class DangKy extends AppCompatActivity {
                         alert.show();
                     }
                     else {
-                        alert.setTitle("Đăng Ký Thành Công");
-                        alert.setMessage("Bạn đăng ký tài khoản thành công! Vui lòng nhấn OK để đi đến trang đăng nhập!");
-                        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                startActivity(new Intent(DangKy.this, DangNhap.class));
-                            }
-                        });
-                        alert.show();
+                        createnewUser();
                     }
                 }
 
+            }
+        });
+    }
+
+    private void createnewUser(){
+        KhachHang khachHang = new KhachHang(username.getText().toString(),edit_pass.getText().toString(),username.getText().toString(),email.getText().toString());
+
+        ApiService.apiService.createUser(khachHang).enqueue(new Callback<KhachHang>() {
+            @Override
+            public void onResponse(Call<KhachHang> call, Response<KhachHang> response) {
+                //Toast.makeText(DangKy.this,"Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
+                alert.setTitle("Đăng Ký Thành Công");
+                alert.setMessage("Bạn đăng ký tài khoản thành công! Vui lòng nhấn OK để đi đến trang đăng nhập!");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(DangKy.this, DangNhap.class));
+                    }
+                });
+                alert.show();
+            }
+
+            @Override
+            public void onFailure(Call<KhachHang> call, Throwable t) {
+                //Toast.makeText(DangKy.this,"Đăng ký thất bại", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
+                alert.setTitle("Đăng Ký Thất Bại");
+                alert.setMessage("Bạn đăng ký tài khoản không thành công! Vui lòng nhấn OK để đăng ký lại!");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(DangKy.this, DangKy.class));
+                    }
+                });
+                alert.show();
             }
         });
     }
