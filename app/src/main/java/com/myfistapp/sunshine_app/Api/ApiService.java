@@ -3,11 +3,9 @@ package com.myfistapp.sunshine_app.Api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.myfistapp.sunshine_app.Class.SanPhamDomain;
-import com.myfistapp.sunshine_app.Model.KhachHang;
-import com.myfistapp.sunshine_app.Model.Sanpham;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 
 import java.util.ArrayList;
-import java.util.Currency;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -30,9 +28,9 @@ public interface ApiService {
     Call<ArrayList<SanPhamDomain>> showitem();
 
     @POST("khachhang/add")
-    Call<KhachHang> createUser(@Body KhachHang khachHang);
+    Call<Khachhang> createUser(@Body Khachhang khachHang);
 
     @GET("khachhang/list")
-    Call<ArrayList<KhachHang>> showuser();
+    Call<ArrayList<Khachhang>> showuser();
 
 }

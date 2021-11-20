@@ -16,12 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
 import com.myfistapp.sunshine_app.Api.ApiService;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
-import com.myfistapp.sunshine_app.Model.KhachHang;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 import java.util.ArrayList;
@@ -37,7 +34,7 @@ public class DangNhap extends AppCompatActivity {
     private Button bt_signin;
     private Animation topAnim, bottomAnim, leftAnim;
     private CheckBox checkbox;
-    private ArrayList<KhachHang> khachHangs;
+    private ArrayList<Khachhang> khachhangs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +87,7 @@ public class DangNhap extends AppCompatActivity {
                 finish();
             }
         });
-        khachHangs = new ArrayList<>();
+        khachhangs = new ArrayList<>();
         getlistuser();
 
 
@@ -124,11 +121,11 @@ public class DangNhap extends AppCompatActivity {
         String strUsername=username.getText().toString().trim();
         String strPassword=pass.getText().toString().trim();
 
-        if(khachHangs == null || khachHangs.isEmpty()){
+        if(khachhangs == null || khachhangs.isEmpty()){
             return;
         }
         boolean isHasUser = false;
-        for(KhachHang khachHang:khachHangs){
+        for(Khachhang khachHang: khachhangs){
             if(strUsername.equals(khachHang.getTendangnhap()) && strPassword.equals(khachHang.getMatkhau())){
                 isHasUser = true;
                 break;
@@ -145,14 +142,14 @@ public class DangNhap extends AppCompatActivity {
 
     private void getlistuser() {
 
-        ApiService.apiService.showuser().enqueue(new Callback<ArrayList<KhachHang>>() {
+        ApiService.apiService.showuser().enqueue(new Callback<ArrayList<Khachhang>>() {
             @Override
-            public void onResponse(Call<ArrayList<KhachHang>> call, Response<ArrayList<KhachHang>> response) {
-                khachHangs = response.body();
+            public void onResponse(Call<ArrayList<Khachhang>> call, Response<ArrayList<Khachhang>> response) {
+                khachhangs = response.body();
             }
 
             @Override
-            public void onFailure(Call<ArrayList<KhachHang>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Khachhang>> call, Throwable t) {
 
             }
         });

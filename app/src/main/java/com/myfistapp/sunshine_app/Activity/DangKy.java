@@ -3,7 +3,6 @@ package com.myfistapp.sunshine_app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -12,14 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.myfistapp.sunshine_app.Api.ApiService;
-import com.myfistapp.sunshine_app.Model.KhachHang;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 import retrofit2.Call;
@@ -113,12 +111,10 @@ public class DangKy extends AppCompatActivity {
     }
 
     private void createnewUser(){
-        KhachHang khachHang = new KhachHang(username.getText().toString(),edit_pass.getText().toString(),username.getText().toString(),email.getText().toString());
-
-        ApiService.apiService.createUser(khachHang).enqueue(new Callback<KhachHang>() {
+        Khachhang khachHang = new Khachhang(username.getText().toString(),edit_pass.getText().toString(),username.getText().toString(),email.getText().toString());
+        ApiService.apiService.createUser(khachHang).enqueue(new Callback<Khachhang>() {
             @Override
-            public void onResponse(Call<KhachHang> call, Response<KhachHang> response) {
-                //Toast.makeText(DangKy.this,"Đăng ký thành công", Toast.LENGTH_SHORT).show();
+            public void onResponse(Call<Khachhang> call, Response<Khachhang> response) {
                 AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
                 alert.setTitle("Đăng Ký Thành Công");
                 alert.setMessage("Bạn đăng ký tài khoản thành công! Vui lòng nhấn OK để đi đến trang đăng nhập!");
@@ -132,7 +128,7 @@ public class DangKy extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<KhachHang> call, Throwable t) {
+            public void onFailure(Call<Khachhang> call, Throwable t) {
                 //Toast.makeText(DangKy.this,"Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
                 alert.setTitle("Đăng Ký Thất Bại");

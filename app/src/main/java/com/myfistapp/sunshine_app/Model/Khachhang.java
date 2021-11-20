@@ -2,29 +2,35 @@ package com.myfistapp.sunshine_app.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class KhachHang {
-    @SerializedName("IDKH")
+public class Khachhang {
     private int idkh;
-    @SerializedName("TenDangNhap")
     private String tendangnhap;
-    @SerializedName("MatKhau")
     private String matkhau;
-    @SerializedName("HoVaTen")
     private String hovaten;
-    @SerializedName("SDT")
     private String sdt;
-    @SerializedName("GioiTinh")
     private String gioitinh;
-    @SerializedName("NgaySinh")
     private String ngaysinh;
-    @SerializedName("Email")
     private String email;
 
-    public KhachHang( String tendangnhap, String matkhau, String hovaten, String email) {
+    public Khachhang( String tendangnhap, String matkhau, String hovaten, String email) {
         this.tendangnhap = tendangnhap;
         this.matkhau = matkhau;
         this.hovaten = hovaten;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Khachhang{" +
+                "idkh=" + idkh +
+                ", tendangnhap='" + tendangnhap + '\'' +
+                ", matkhau='" + matkhau + '\'' +
+                ", hovaten='" + hovaten + '\'' +
+                ", sdt='" + sdt + '\'' +
+                ", gioitinh='" + gioitinh + '\'' +
+                ", ngaysinh='" + ngaysinh + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     public int getIdkh() {
