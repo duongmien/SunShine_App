@@ -21,6 +21,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
+import com.myfistapp.sunshine_app.Helper.TinyDB;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
@@ -37,7 +38,7 @@ public class GioHang extends AppCompatActivity {
     private RelativeLayout rediachi,redanhsach,rethanhtoan;
     private ImageView btnpttt,btndiachi;
     private Khachhang khachhang;
-
+    private TinyDB tinyDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,17 +54,11 @@ public class GioHang extends AppCompatActivity {
 
         initView();
 
+        String lhe = tinyDB.getListObject("DiaChi").toString();
+        String Pttt = tinyDB.getListObject("ThanhToan").toString();
 
-
-        Intent intent2 = getIntent();
-        String lhe = intent2.getStringExtra("LienHe");
-        if(lhe!=""){
-            diachi.setText(lhe);}
-
-        Intent intent3 = getIntent();
-        String Pttt = intent3.getStringExtra("PTTT");
-        if (Pttt!=""){
-            pttt.setText(Pttt);}
+        diachi.setText(lhe);
+        pttt.setText(Pttt);
 
         initList();
         calculateCard();
