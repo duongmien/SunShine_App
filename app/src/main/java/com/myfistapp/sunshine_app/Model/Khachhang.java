@@ -1,8 +1,8 @@
 package com.myfistapp.sunshine_app.Model;
 
-import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
-public class Khachhang {
+public class Khachhang implements Serializable {
     private int idkh;
     private String tendangnhap;
     private String matkhau;

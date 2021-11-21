@@ -35,6 +35,7 @@ public class DangNhap extends AppCompatActivity {
     private Animation topAnim, bottomAnim, leftAnim;
     private CheckBox checkbox;
     private ArrayList<Khachhang> khachhangs;
+    private Khachhang mkhachhang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,11 +129,15 @@ public class DangNhap extends AppCompatActivity {
         for(Khachhang khachHang: khachhangs){
             if(strUsername.equals(khachHang.getTendangnhap()) && strPassword.equals(khachHang.getMatkhau())){
                 isHasUser = true;
+                mkhachhang = khachHang;
                 break;
             }
         }
         if (isHasUser){
             Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("object_user",mkhachhang);
+            intent.putExtras(bundle);
             startActivity(intent);
             finish();
         }else {

@@ -9,15 +9,23 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 public class ThongBao extends AppCompatActivity {
+
+    private Khachhang khachhang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thong_bao);
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
+
         bottomNavigation();
     }
 
@@ -33,35 +41,55 @@ public class ThongBao extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ThongBao.this, GioHang.class));
+                Intent intent = new Intent(getApplicationContext(), GioHang.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ThongBao.this, TrangChu.class));
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ThongBao.this, YeuThich.class));
+                Intent intent = new Intent(getApplicationContext(), YeuThich.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ThongBao.this, ThongBao.class));
+                Intent intent = new Intent(getApplicationContext(), ThongBao.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         proBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ThongBao.this, TrangCaNhan.class));
+                Intent intent = new Intent(getApplicationContext(), TrangCaNhan.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

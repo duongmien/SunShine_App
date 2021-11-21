@@ -65,26 +65,28 @@ public class ThanhToan extends AppCompatActivity {
                     if(chb1.isChecked()){
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         intent.putExtra("PTTT", "COD");
+                        intent.putExtra("DiaChi", "ZaloPay");
                         startActivity(intent);
                     }
                     if(chb2.isChecked()){
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         intent.putExtra("PTTT", "Momo");
+                        intent.putExtra("DiaChi", "ZaloPay");
                         startActivity(intent);
                     }
                     if(chb3.isChecked()){
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         intent.putExtra("PTTT", "ZaloPay");
+                        intent.putExtra("DiaChi", "ZaloPay");
                         startActivity(intent);
                     }
                     if(chb4.isChecked()){
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         intent.putExtra("PTTT", "Banking");
+                        intent.putExtra("DiaChi", "ZaloPay");
                         startActivity(intent);
                     }
-
                 }
-
             }
         });
     }

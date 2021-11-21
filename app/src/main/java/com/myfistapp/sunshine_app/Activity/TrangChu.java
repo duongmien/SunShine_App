@@ -20,6 +20,7 @@ import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
 import com.myfistapp.sunshine_app.Api.ApiService;
 import com.myfistapp.sunshine_app.Class.Photo;
 import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.Model.Sanpham;
 import com.myfistapp.sunshine_app.R;
 
@@ -35,7 +36,7 @@ import retrofit2.Response;
 public class TrangChu extends AppCompatActivity {
     private RecyclerView.Adapter  adapter;
     private RecyclerView  recyclerViewPopularList;
-
+    private Khachhang khachhang;
     //Khai báo botomNavigation
     private BottomNavigationView bottomNavigationView;
 
@@ -55,13 +56,16 @@ public class TrangChu extends AppCompatActivity {
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_trang_chu);
 
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
         //Ánh xạ bottomNavigation
 
         bottomNavigation();
@@ -113,35 +117,55 @@ public class TrangChu extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, GioHang.class));
+                Intent intent = new Intent(getApplicationContext(), GioHang.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangChu.class));
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, YeuThich.class));
+                Intent intent = new Intent(getApplicationContext(), YeuThich.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, ThongBao.class));
+                Intent intent = new Intent(getApplicationContext(), ThongBao.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         proBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TrangChu.this, TrangCaNhan.class));
+                Intent intent = new Intent(getApplicationContext(), TrangCaNhan.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -216,7 +240,7 @@ public class TrangChu extends AppCompatActivity {
             public void onResponse(Call<ArrayList<SanPhamDomain>> call, Response<ArrayList<SanPhamDomain>> response) {
                 Toast.makeText(TrangChu.this,"Show thanh cong", Toast.LENGTH_SHORT).show();
                 ArrayList<SanPhamDomain> danhsachsanpham = response.body();
-                adapter = new ReycyclerViewAdapter(danhsachsanpham);
+                adapter = new ReycyclerViewAdapter(danhsachsanpham,khachhang);
                 recyclerViewPopularList.setAdapter(adapter);
             }
 

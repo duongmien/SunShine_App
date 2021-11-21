@@ -1,6 +1,7 @@
 package com.myfistapp.sunshine_app.Adapter;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.myfistapp.sunshine_app.Activity.SanPham;
+import com.myfistapp.sunshine_app.Activity.YeuThich;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 
@@ -21,8 +24,10 @@ import java.util.ArrayList;
 public class ReycyclerViewAdapter extends RecyclerView.Adapter<ReycyclerViewAdapter.ViewHolder> {
 
     ArrayList<SanPhamDomain> sanPhamDomains;
-    public ReycyclerViewAdapter(ArrayList<SanPhamDomain> SanPhamDomains) {
+    Khachhang khachhang;
+    public ReycyclerViewAdapter(ArrayList<SanPhamDomain> SanPhamDomains, Khachhang mkhachhang) {
         this.sanPhamDomains =SanPhamDomains;
+        this.khachhang=mkhachhang;
     }
 
     @NonNull
@@ -48,6 +53,9 @@ public class ReycyclerViewAdapter extends RecyclerView.Adapter<ReycyclerViewAdap
             public void onClick(View v) {
                 Intent intent = new Intent(holder.itemView.getContext(), SanPham.class);
                 intent.putExtra("object", sanPhamDomains.get(position));
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

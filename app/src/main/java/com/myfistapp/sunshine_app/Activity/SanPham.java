@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 import java.text.DecimalFormat;
@@ -23,6 +24,7 @@ public class SanPham extends AppCompatActivity {
     private ImageView btn_cong,btn_tru,img_sanpham;
     private SanPhamDomain object;
     private ManagementCart managementCart;
+    private Khachhang khachhang;
 
     private int soluong = 1;
     @Override
@@ -30,6 +32,11 @@ public class SanPham extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_san_pham);
+
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
 
         managementCart = new ManagementCart(this);
         initView();
@@ -80,7 +87,11 @@ public class SanPham extends AppCompatActivity {
             public void onClick(View v) {
                 object.setSoluongdathang(soluong);
                 managementCart.insertFood(object);
-                startActivity(new Intent(SanPham.this, TrangChu.class));
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }

@@ -22,6 +22,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Activity.TrangCaNhan;
 
@@ -35,26 +36,34 @@ public class GioHang extends AppCompatActivity {
     private TextView tongtien, tongsanpham,emptyTxt,btndathang,pttt, diachi;
     private RelativeLayout rediachi,redanhsach,rethanhtoan;
     private ImageView btnpttt,btndiachi;
+    private Khachhang khachhang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gio_hang);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
+
         managementCart = new ManagementCart(this);
 
         initView();
 
 
-        Intent intent = getIntent();
-        String Pttt = intent.getStringExtra("PTTT");
-        if (Pttt!=""){
-            pttt.setText(Pttt);}
 
         Intent intent2 = getIntent();
         String lhe = intent2.getStringExtra("LienHe");
         if(lhe!=""){
             diachi.setText(lhe);}
+
+        Intent intent3 = getIntent();
+        String Pttt = intent3.getStringExtra("PTTT");
+        if (Pttt!=""){
+            pttt.setText(Pttt);}
 
         initList();
         calculateCard();
@@ -63,6 +72,7 @@ public class GioHang extends AppCompatActivity {
         btndiachi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(GioHang.this, LienHe.class));
             }
         });
@@ -125,37 +135,58 @@ public class GioHang extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, GioHang.class));
+                Intent intent = new Intent(getApplicationContext(), GioHang.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, TrangChu.class));
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, YeuThich.class));
+                Intent intent = new Intent(getApplicationContext(), YeuThich.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         notiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, ThongBao.class));
+                Intent intent = new Intent(getApplicationContext(), ThongBao.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
         proBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GioHang.this, TrangCaNhan.class));
+                Intent intent = new Intent(getApplicationContext(), TrangCaNhan.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
+
     }
 
     private void calculateCard() {
