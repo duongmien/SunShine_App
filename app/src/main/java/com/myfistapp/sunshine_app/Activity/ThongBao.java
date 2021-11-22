@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.myfistapp.sunshine_app.Model.Khachhang;
@@ -25,6 +26,7 @@ public class ThongBao extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
+        Toast.makeText(ThongBao.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         bottomNavigation();
     }

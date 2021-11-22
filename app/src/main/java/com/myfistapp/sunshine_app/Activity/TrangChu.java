@@ -238,7 +238,7 @@ public class TrangChu extends AppCompatActivity {
         ApiService.apiService.showitem().enqueue(new Callback<ArrayList<SanPhamDomain>>() {
             @Override
             public void onResponse(Call<ArrayList<SanPhamDomain>> call, Response<ArrayList<SanPhamDomain>> response) {
-                Toast.makeText(TrangChu.this,"Show thanh cong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TrangChu.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
                 ArrayList<SanPhamDomain> danhsachsanpham = response.body();
                 adapter = new ReycyclerViewAdapter(danhsachsanpham,khachhang);
                 recyclerViewPopularList.setAdapter(adapter);

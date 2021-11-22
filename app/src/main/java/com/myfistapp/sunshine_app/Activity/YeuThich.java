@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -34,6 +35,8 @@ public class YeuThich extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
+        Toast.makeText(YeuThich.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
+
         bottomNavigation();
         recyclerViewFavorite();
     }

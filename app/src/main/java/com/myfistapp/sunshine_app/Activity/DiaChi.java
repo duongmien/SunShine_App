@@ -2,6 +2,7 @@ package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,13 +28,6 @@ public class DiaChi extends AppCompatActivity {
     private DiaChiAdapter quanhuyenAdapter, phuongxaAdapter;
     private TextView btn_xacnhan;
     private String qh,px;
-    private Context context;
-    private TinyDB tinyDB;
-
-    public DiaChi(Context context) {
-        this.context = context;
-        this.tinyDB = new TinyDB(context);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +77,7 @@ public class DiaChi extends AppCompatActivity {
                     Toast.makeText(DiaChi.this, "Vui long nhập Phường/Xã", Toast.LENGTH_SHORT).show();
                 }else{
                     String diachi = qh+", "+px+", Thành phố Đà Nẵng";
-                    tinyDB.putObject("DiaChi",diachi);
+
                     Intent intent = new Intent(DiaChi.this, LienHe.class);
                     startActivity(intent);
                 }

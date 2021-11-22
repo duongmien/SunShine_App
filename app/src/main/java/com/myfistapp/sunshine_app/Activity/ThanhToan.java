@@ -2,6 +2,7 @@ package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,12 +19,6 @@ public class ThanhToan extends AppCompatActivity {
     private TextView btn_thanhtoan;
     private CheckBox chb1, chb2, chb3, chb4;
     private Context context;
-    private TinyDB tinyDB;
-
-    public ThanhToan(Context context) {
-        this.context = context;
-        this.tinyDB = new TinyDB(context);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,23 +65,29 @@ public class ThanhToan extends AppCompatActivity {
                 if(chb1.isChecked()==false & chb2.isChecked()==false & chb3.isChecked()==false &chb4.isChecked()==false) {
                         Toast.makeText(ThanhToan.this, "Hãy chọn một phương thức thanh toán", Toast.LENGTH_SHORT).show();
                 }else{
+                    SharedPreferences preferences = getSharedPreferences("Pttt", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
                     if(chb1.isChecked()){
-                        tinyDB.putObject("ThanhToan","COD");
+                        editor.putString("pttt", "COD");
+                        editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         startActivity(intent);
                     }
                     if(chb2.isChecked()){
-                        tinyDB.putObject("ThanhToan","Momo");
+                        editor.putString("pttt", "Momo");
+                        editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         startActivity(intent);
                     }
                     if(chb3.isChecked()){
-                        tinyDB.putObject("ThanhToan","ZaloPay");
+                        editor.putString("pttt", "ZaloPay");
+                        editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         startActivity(intent);
                     }
                     if(chb4.isChecked()){
-                        tinyDB.putObject("ThanhToan","Banking");
+                        editor.putString("pttt", "Banking");
+                        editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
                         startActivity(intent);
                     }

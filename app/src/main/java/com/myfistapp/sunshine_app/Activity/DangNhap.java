@@ -57,21 +57,21 @@ public class DangNhap extends AppCompatActivity {
         username = findViewById(R.id.username);
         pass = findViewById(R.id.pass);
         bt_signin = findViewById(R.id.bt_login);
-//        Set Animation
+////        Set Animation
         img_login.setAnimation(topAnim);
         text_singin.setAnimation(topAnim);
-//
+
         bt_signin.setAnimation(leftAnim);
         username.setAnimation(leftAnim);
         pass.setAnimation(leftAnim);
         checkbox.setAnimation(leftAnim);
-//
+
         text_sigup.setAnimation(bottomAnim);
         text_forgetpass.setAnimation(bottomAnim);
         img_gg.setAnimation(bottomAnim);
         img_fb.setAnimation(bottomAnim);
         img_ig.setAnimation(bottomAnim);
-        //
+
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
         String state_checkbox = preferences.getString("remember", "");
         if (state_checkbox.equals("true")) {

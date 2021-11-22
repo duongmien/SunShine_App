@@ -1,6 +1,7 @@
 package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -31,9 +32,12 @@ public class LienHe extends AppCompatActivity {
         btn_hoanthanh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LienHe.this, GioHang.class);
                 String lienhe = ten.getText()+"\n"+sdt.getText()+"\n"+sonha.getText()+" "+btn_diachi.getText();
-                intent.putExtra("LienHe", lienhe);
+                SharedPreferences preferences = getSharedPreferences("Diachi", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("diachi", lienhe);
+                editor.apply();
+                Intent intent = new Intent(LienHe.this, GioHang.class);
                 startActivity(intent);
             }
         });

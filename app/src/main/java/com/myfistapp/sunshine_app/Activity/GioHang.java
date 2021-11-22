@@ -1,6 +1,7 @@
 package com.myfistapp.sunshine_app.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,14 +50,15 @@ public class GioHang extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
+        Toast.makeText(GioHang.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         managementCart = new ManagementCart(this);
 
         initView();
-
-        String lhe = tinyDB.getListObject("DiaChi").toString();
-        String Pttt = tinyDB.getListObject("ThanhToan").toString();
-
+        SharedPreferences preferences = getSharedPreferences("Diachi", MODE_PRIVATE);
+        SharedPreferences preferences2 = getSharedPreferences("Pttt", MODE_PRIVATE);
+        String lhe = preferences.getString("diachi", "");
+        String Pttt = preferences2.getString("pttt", "");
         diachi.setText(lhe);
         pttt.setText(Pttt);
 
