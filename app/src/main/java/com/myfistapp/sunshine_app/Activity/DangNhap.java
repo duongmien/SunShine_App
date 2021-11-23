@@ -1,5 +1,6 @@
 package com.myfistapp.sunshine_app.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,8 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.myfistapp.sunshine_app.Api.ApiService;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
@@ -31,6 +34,7 @@ public class DangNhap extends AppCompatActivity {
     private ImageView img_login, img_ig, img_fb, img_gg;
     private TextView text_singin, text_sigup, text_forgetpass;
     private EditText username, pass;
+    private TextInputLayout layout_pass;
     private Button bt_signin;
     private Animation topAnim, bottomAnim, leftAnim;
     private CheckBox checkbox;
@@ -57,13 +61,14 @@ public class DangNhap extends AppCompatActivity {
         username = findViewById(R.id.username);
         pass = findViewById(R.id.pass);
         bt_signin = findViewById(R.id.bt_login);
+        layout_pass=findViewById(R.id.layout_pass);
 ////        Set Animation
         img_login.setAnimation(topAnim);
         text_singin.setAnimation(topAnim);
 
         bt_signin.setAnimation(leftAnim);
         username.setAnimation(leftAnim);
-        pass.setAnimation(leftAnim);
+        layout_pass.setAnimation(leftAnim);
         checkbox.setAnimation(leftAnim);
 
         text_sigup.setAnimation(bottomAnim);
@@ -121,6 +126,19 @@ public class DangNhap extends AppCompatActivity {
     private void clicklogin(){
         String strUsername=username.getText().toString().trim();
         String strPassword=pass.getText().toString().trim();
+        AlertDialog.Builder alert = new AlertDialog.Builder(DangNhap.this);
+        alert.setTitle("Nhập Thiếu Thông Tin");
+        alert.setMessage("Bạn nhập thiếu thông tin. Vui lòng nhập lại");
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                alert.setCancelable(true);
+            }
+        });
+        if(strUsername.isEmpty()||strPassword.isEmpty()){
+            alert.show();
+        }
+        else {
         if(khachhangs == null || khachhangs.isEmpty()){
             return;
         }
@@ -140,7 +158,16 @@ public class DangNhap extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else {
-            Toast.makeText(DangNhap.this,"Đăng nhập thất bại!!", Toast.LENGTH_SHORT).show();
+            alert.setTitle("Đăng nhập thất bại");
+            alert.setMessage("Bạn nhập sai tên đăng nhập hoặc mật khẩu! Vui lòng kiểm tra lại!");
+            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    alert.setCancelable(true);
+                }
+            });
+            alert.show();
+        }
         }
     }
 
