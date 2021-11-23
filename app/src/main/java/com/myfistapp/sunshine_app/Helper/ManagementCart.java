@@ -41,6 +41,12 @@ public class ManagementCart {
         Toast.makeText(context, "Added To Your Card", Toast.LENGTH_SHORT).show();
 
     }
+    public void deleteOrder() {
+
+        tinyDB.remove("CardList");
+        Toast.makeText(context, "Đặt hàng thành công!", Toast.LENGTH_SHORT).show();
+
+    }
 
     public ArrayList<SanPhamDomain>getListCard() {
         return tinyDB.getListObject("CardList");

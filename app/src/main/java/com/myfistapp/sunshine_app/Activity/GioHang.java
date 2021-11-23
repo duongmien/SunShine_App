@@ -21,14 +21,23 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
+import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Class.SanPhamDomain;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.Helper.TinyDB;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
+import com.myfistapp.sunshine_app.Model.Chitiethoadon;
+import com.myfistapp.sunshine_app.Model.Hoadon;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Activity.TrangCaNhan;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class GioHang extends AppCompatActivity {
 
@@ -39,7 +48,9 @@ public class GioHang extends AppCompatActivity {
     private RelativeLayout rediachi,redanhsach,rethanhtoan;
     private ImageView btnpttt,btndiachi;
     private Khachhang khachhang;
-    private TinyDB tinyDB;
+    private String Pttt;
+    private int IDHD;
+    private ArrayList<Hoadon> hoadon1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +69,7 @@ public class GioHang extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("Diachi", MODE_PRIVATE);
         SharedPreferences preferences2 = getSharedPreferences("Pttt", MODE_PRIVATE);
         String lhe = preferences.getString("diachi", "");
-        String Pttt = preferences2.getString("pttt", "");
+        Pttt = preferences2.getString("pttt", "");
         diachi.setText(lhe);
         pttt.setText(Pttt);
 
@@ -87,10 +98,74 @@ public class GioHang extends AppCompatActivity {
                     Toast.makeText(GioHang.this, "Hãy chọn phương thức thanh toán", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(GioHang.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
+                    createNewOrder();
                 }
             }
         });
     }
+
+    private void createNewOrder() {
+        Hoadon hoadon = new Hoadon();
+        hoadon.setIdkh(khachhang.getIdkh());
+        hoadon.setHinhthucthanhtoan(Pttt);
+
+        ApiService.apiService.createOrder(hoadon).enqueue(new Callback<Hoadon>() {
+            @Override
+            public void onResponse(Call<Hoadon> call, Response<Hoadon> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Hoadon> call, Throwable t) {
+
+            }
+        });
+        hoadon1 = new ArrayList<>();
+        ApiService.apiService.showlistnewest().enqueue(new Callback<ArrayList<Hoadon>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Hoadon>> call, Response<ArrayList<Hoadon>> response) {
+                hoadon1 =response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Hoadon>> call, Throwable t) {
+
+            }
+        });
+        hoadon1.get(0).getIdhd();
+        ArrayList<SanPhamDomain> danhsachsanpham = managementCart.getListCard();
+        for(int i=0;i<danhsachsanpham.size();i++){
+
+            Chitiethoadon ct = new Chitiethoadon();
+            ct.setIdhd(IDHD);
+            ct.setIdsp(danhsachsanpham.get(i).getIdsp());
+            ct.setSoluong(danhsachsanpham.get(i).getSoluongdathang());
+            createNewOrderDetail(ct);
+        }
+        managementCart.deleteOrder();
+        Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_user",khachhang);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
+
+    private void createNewOrderDetail(Chitiethoadon c) {
+        ApiService.apiService.createOrderDetail(c).enqueue(new Callback<Chitiethoadon>() {
+            @Override
+            public void onResponse(Call<Chitiethoadon> call, Response<Chitiethoadon> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Chitiethoadon> call, Throwable t) {
+
+            }
+        });
+
+    }
+
     public static String currencyFormat(Double amount) {
         DecimalFormat formatter = new DecimalFormat("###,###,###");
         return formatter.format((amount));
