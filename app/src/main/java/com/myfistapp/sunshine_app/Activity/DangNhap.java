@@ -121,7 +121,6 @@ public class DangNhap extends AppCompatActivity {
     private void clicklogin(){
         String strUsername=username.getText().toString().trim();
         String strPassword=pass.getText().toString().trim();
-
         if(khachhangs == null || khachhangs.isEmpty()){
             return;
         }
@@ -146,7 +145,6 @@ public class DangNhap extends AppCompatActivity {
     }
 
     private void getlistuser() {
-
         ApiService.apiService.showuser().enqueue(new Callback<ArrayList<Khachhang>>() {
             @Override
             public void onResponse(Call<ArrayList<Khachhang>> call, Response<ArrayList<Khachhang>> response) {
@@ -158,6 +156,5 @@ public class DangNhap extends AppCompatActivity {
 
             }
         });
-
     }
 }

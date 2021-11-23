@@ -42,22 +42,29 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp" />
 
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_pass"
+        android:layout_width="330dp"
+        app:passwordToggleEnabled="true"
+        app:hintEnabled="false"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:width="330dp"
-        android:height="60dp"
-        android:background="@drawable/bg_edit_text_border"
-        android:fontFamily="@font/opensans"
-        android:hint="Nhập password..."
-        android:inputType="textPassword"
-        android:paddingLeft="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp" />
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/username">
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="330dp"
+            android:height="60dp"
+            android:background="@drawable/bg_edit_text_border"
+            android:fontFamily="@font/opensans"
+            android:hint="Nhập password..."
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/bt_login"
@@ -79,7 +86,7 @@
         android:id="@+id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pass"
+        android:layout_below="@id/layout_pass"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/opensans"

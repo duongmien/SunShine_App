@@ -7,21 +7,13 @@ import java.io.Serializable;
 public class SanPhamDomain implements Serializable {
 
 
-    @SerializedName("IDSP")
     private int idsp;
-    @SerializedName("IDDM")
     private int iddm;
-    @SerializedName("TenSanPham")
     private String tensanpham;
-    @SerializedName("MoTaSanPham")
     private String thongtinsanpham;
-    @SerializedName("Anh")
     private String anhsanpham;
-    @SerializedName("GiaSanPham")
     private String giasanpham;
-    @SerializedName("Kcal")
     private String kcal;
-    @SerializedName("ThoiGianCheBien")
     private String thoigian;
     private int soluongdathang;
     private String danhgiasanpham="5";
