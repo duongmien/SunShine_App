@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 
 import java.util.ArrayList;
 

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.R;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 
 
 import java.text.DecimalFormat;

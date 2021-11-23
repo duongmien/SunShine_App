@@ -2,7 +2,8 @@ package com.myfistapp.sunshine_app.Api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Class.CategoryDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 
 import java.util.ArrayList;
@@ -32,5 +33,8 @@ public interface ApiService {
 
     @GET("khachhang/list")
     Call<ArrayList<Khachhang>> showuser();
+
+    @GET("danhmuc/list")
+    Call<ArrayList<CategoryDomain>> showcat();
 
 }

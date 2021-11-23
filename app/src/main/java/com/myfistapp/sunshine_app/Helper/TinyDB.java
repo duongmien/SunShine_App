@@ -32,7 +32,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 
 import java.io.File;
 import java.io.FileOutputStream;

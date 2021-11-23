@@ -10,22 +10,23 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.myfistapp.sunshine_app.Adapter.CategoryAdapter;
 import com.myfistapp.sunshine_app.Adapter.PhotoViewPagerAdapter;
 import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
 import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Class.CategoryDomain;
 import com.myfistapp.sunshine_app.Class.Photo;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Model.Khachhang;
-import com.myfistapp.sunshine_app.Model.Sanpham;
 import com.myfistapp.sunshine_app.R;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -35,7 +36,7 @@ import retrofit2.Response;
 
 public class TrangChu extends AppCompatActivity {
     private RecyclerView.Adapter  adapter;
-    private RecyclerView  recyclerViewPopularList;
+    private RecyclerView  recyclerViewPopularList, recyclerViewCategoryList;
     private Khachhang khachhang;
     //Khai báo botomNavigation
     private BottomNavigationView bottomNavigationView;
@@ -102,6 +103,7 @@ public class TrangChu extends AppCompatActivity {
         });
 
          recyclerViewPopular();
+        recyclerViewCategory();
 
 
     }
@@ -251,10 +253,34 @@ public class TrangChu extends AppCompatActivity {
             }
         });
         
-        
+    }
+    private void recyclerViewCategory() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewCategoryList = findViewById(R.id.recyclerView_danhmuc);
+        recyclerViewCategoryList.setLayoutManager(linearLayoutManager);
 
+//        ArrayList<CategoryDomain> categoryList = new ArrayList<>();
+//        categoryList.add(new CategoryDomain("Pizza", "cat_1"));
+//        categoryList.add(new CategoryDomain("Burger", "cat_2"));
+//        categoryList.add(new CategoryDomain("Hotdog", "cat_3"));
+//        categoryList.add(new CategoryDomain("Drink", "cat_4"));
+//        categoryList.add(new CategoryDomain("Dount", "cat_5"));
 
+        ApiService.apiService.showcat().enqueue(new Callback<ArrayList<CategoryDomain>>() {
+            @Override
+            public void onResponse(Call<ArrayList<CategoryDomain>> call, Response<ArrayList<CategoryDomain>> response) {
+                Toast.makeText(TrangChu.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
+                ArrayList<CategoryDomain> danhsachdanhmuc = response.body();
+                adapter = new CategoryAdapter(danhsachdanhmuc,khachhang);
+                recyclerViewCategoryList.setAdapter(adapter);
+            }
 
+            @Override
+            public void onFailure(Call<ArrayList<CategoryDomain>> call, Throwable t) {
+                Toast.makeText(TrangChu.this,"Show that bai", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
 

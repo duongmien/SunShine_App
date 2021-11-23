@@ -1,4 +1,4 @@
-package com.myfistapp.sunshine_app.Class;
+package com.myfistapp.sunshine_app.Model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -29,16 +29,6 @@ public class SanPhamDomain implements Serializable {
         this.danhgiasanpham = danhgiasanpham;
     }
 
-    public SanPhamDomain(String tensanpham, String anhsanpham, String thongtinsanpham, String thoigian, String kcal, String giasanpham, int soluongsanpham, String danhgiasanpham) {
-        this.tensanpham = tensanpham;
-        this.anhsanpham = anhsanpham;
-        this.thongtinsanpham = thongtinsanpham;
-        this.thoigian = thoigian;
-        this.kcal = kcal;
-        this.giasanpham = giasanpham;
-        this.soluongdathang = soluongsanpham;
-        this.danhgiasanpham = danhgiasanpham;
-    }
 
     public int getIdsp() {
         return idsp;

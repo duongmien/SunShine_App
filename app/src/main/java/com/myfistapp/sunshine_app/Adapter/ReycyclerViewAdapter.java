@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.myfistapp.sunshine_app.Activity.SanPham;
-import com.myfistapp.sunshine_app.Activity.YeuThich;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 
 
 import java.util.ArrayList;

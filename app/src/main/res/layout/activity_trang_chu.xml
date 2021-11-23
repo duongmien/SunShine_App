@@ -63,147 +63,35 @@
                     app:ci_drawable_unselected="@drawable/bg_indicator_unselect" />
 
             </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/danhmuc"
+            <RelativeLayout
+                android:id="@+id/slide_cat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:id="@+id/xemtatcadm"
+                <TextView
+                    android:id="@id/textView11"
+                    android:layout_width="wrap_content"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/opensans"
+                    android:layout_height="wrap_content"
+                    android:text="Danh Mục" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_danhmuc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp">
+                    android:layout_below="@id/textView11"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="22dp"
+                    android:paddingEnd="22dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensans"
-                        android:text="Danh mục"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_xemtatca"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toLeftOf="@id/ic_icon"
-                        android:fontFamily="@font/opensans"
-                        android:text="Xem tất cả"
-                        android:textColor="@color/orange"
-                        android:textSize="18sp" />
-
-                    <ImageButton
-                        android:id="@+id/ic_icon"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_alignParentEnd="true"
-                        android:backgroundTint="@color/white"
-                        android:gravity="center"
-                        android:src="@drawable/ic_arrow_right" />
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/danhmuc1"
-                        android:layout_width="67dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/img_danh_muc_1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/dancingscript"
-                            android:text="Hamburger" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/danhmuc2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/img_danh_muc_2" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/dancingscript"
-                            android:text="Pizza" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/danhmuc3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/img_danh_muc_3" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/dancingscript"
-                            android:text="Gà" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/danhmuc4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/img_danh_muc_4" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/dancingscript"
-                            android:text="Soup" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

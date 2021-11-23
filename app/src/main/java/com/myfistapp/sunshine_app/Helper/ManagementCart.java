@@ -5,7 +5,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
