@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/bg_orange_button.xml" value="0.14831081081081082" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_favorite.xml" value="0.14831081081081082" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/ic_favorite_border.xml" value="0.14831081081081082" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/drawable/toggle_selector.xml" value="0.14831081081081082" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_dang_ky.xml" value="0.2" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_dang_nhap.xml" value="0.11270491803278689" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_dia_chi.xml" value="0.22" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_gio_hang.xml" value="0.25" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_san_pham.xml" value="0.2" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_trang_ca_nhan.xml" value="0.1260245901639344" />
         <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_trang_chu.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/activity_yeu_thich.xml" value="0.14" />
+        <entry key="..\:/AndroidProject/SunShine_App/app/src/main/res/layout/viewholder_cat.xml" value="0.33" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable-v24/ic_nav_cart.xml" value="0.25462962962962965" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable/category_background1.xml" value="0.2703125" />
         <entry key="..\:/SINHVIEN/HOC KY 5-121/Android Studio/SunShine_App/app/src/main/res/drawable/ic_nav_cart.xml" value="0.25462962962962965" />

@@ -7,6 +7,7 @@ import com.myfistapp.sunshine_app.Model.Chitiethoadon;
 import com.myfistapp.sunshine_app.Model.Hoadon;
 import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Model.Khachhang;
+import com.myfistapp.sunshine_app.Model.Yeuthich;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
     Gson gson = new GsonBuilder()
@@ -47,5 +49,14 @@ public interface ApiService {
 
     @POST("chitiethoadon/add")
     Call<Chitiethoadon> createOrderDetail(@Body Chitiethoadon chitiethoadon);
+
+    @GET("yeuthich/list/{idkh}")
+    Call<ArrayList<Yeuthich>> showFavorite( @Path("idkh")int idkh);
+
+    @POST("yeuthich/add")
+    Call<Yeuthich> addFavorite(@Body Yeuthich yeuthich);
+
+    @POST("yeuthich/delete/{idkh}/{idsp}")
+    Call<Yeuthich> deleteFavorite(@Path("idkh")int idkh,@Path("idsp")int idsp);
 
 }

@@ -1,21 +1,31 @@
 package com.myfistapp.sunshine_app.Activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.myfistapp.sunshine_app.Api.ApiService;
 import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.Model.Khachhang;
+import com.myfistapp.sunshine_app.Model.Yeuthich;
 import com.myfistapp.sunshine_app.R;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SanPham extends AppCompatActivity {
 
@@ -25,8 +35,11 @@ public class SanPham extends AppCompatActivity {
     private SanPhamDomain object;
     private ManagementCart managementCart;
     private Khachhang khachhang;
-
+    private ToggleButton btn_fav;
+    private int id_khachhang, id_sanpham;
     private int soluong = 1;
+    private ArrayList<Yeuthich> yeuthiches ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +53,7 @@ public class SanPham extends AppCompatActivity {
 
         managementCart = new ManagementCart(this);
         initView();
+
         getBundle();
     }
     public static String currencyFormat(String amount) {
@@ -48,21 +62,38 @@ public class SanPham extends AppCompatActivity {
     }
     private void getBundle() {
         object = (SanPhamDomain) getIntent().getSerializableExtra("object");
-
         int drawableResourceId = this.getResources().getIdentifier(object.getAnhsanpham(), "drawable", this.getPackageName());
-
         Glide.with(this)
                 .load(drawableResourceId)
                 .into(img_sanpham);
-
         txt_tensanpham.setText(object.getTensanpham());
         txt_giasanpham.setText(currencyFormat(object.getGiasanpham())+" VNĐ");
         txt_danhgia.setText(object.getDanhgiasanpham());
         txt_thoigian.setText(object.getThoigian()+"phút");
         txt_kcal.setText(object.getKcal()+"kacl");
         txt_thongtinsanpham.setText(object.getThongtinsanpham());
-
         txt_soluongsanpham.setText(String.valueOf(soluong));
+
+        id_khachhang = khachhang.getIdkh();
+        id_sanpham = object.getIdsp();
+
+        if(checkFavorite(id_khachhang,id_sanpham)){
+            btn_fav.setChecked(true);
+        }else {
+            btn_fav.setChecked(false);
+        }
+
+        btn_fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean checked = ((ToggleButton) view).isChecked();
+                if (checked){
+                    setFav(id_khachhang,id_sanpham);
+                }else {
+                    setunFav(id_khachhang,id_sanpham);
+                }
+            }
+        });
 
         btn_cong.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +127,74 @@ public class SanPham extends AppCompatActivity {
         });
     }
 
+    private void showFav(int id_khachhang, int id_sanpham) {
+
+        ApiService.apiService.showFavorite(id_khachhang).enqueue(new Callback<ArrayList<Yeuthich>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Yeuthich>> call, Response<ArrayList<Yeuthich>> response) {
+                yeuthiches = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Yeuthich>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void setunFav(int id_khachhang, int id_sanpham) {
+        if (checkFavorite(id_khachhang,id_sanpham)){
+            ApiService.apiService.deleteFavorite(id_khachhang,id_sanpham).enqueue(new Callback<Yeuthich>() {
+                @Override
+                public void onResponse(Call<Yeuthich> call, Response<Yeuthich> response) {
+                    Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<Yeuthich> call, Throwable t) {
+
+                }
+            });
+        }else {
+            return;
+        }
+    }
+
+    private void setFav(int id_khachhang, int id_sanpham) {
+        if (checkFavorite(id_khachhang,id_sanpham)){
+            return;
+        }else {
+            Yeuthich yeuthich2 = new Yeuthich(id_khachhang,id_sanpham);
+            ApiService.apiService.addFavorite(yeuthich2).enqueue(new Callback<Yeuthich>() {
+                @Override
+                public void onResponse(Call<Yeuthich> call, Response<Yeuthich> response) {
+                    Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<Yeuthich> call, Throwable t) {
+
+                }
+            });
+        }
+    }
+
+    private boolean checkFavorite(int id_khachhang, int id_sanpham) {
+        boolean isHasFav = false;
+        showFav(id_khachhang,id_sanpham);
+        for(Yeuthich yeuthich: yeuthiches){
+            if(id_khachhang==yeuthich.getIdkh() && id_sanpham == yeuthich.getIdsp()){
+                isHasFav = true;
+                break;
+            }
+        }
+        if (isHasFav){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
     private void initView() {
         btn_themsanpham = findViewById(R.id.btn_themsanpham);
         txt_tensanpham = findViewById(R.id.txt_tensanpham);
@@ -108,6 +207,7 @@ public class SanPham extends AppCompatActivity {
         btn_cong = findViewById(R.id.btn_cong);
         btn_tru = findViewById(R.id.btn_tru);
         img_sanpham = findViewById(R.id.img_sanpham_giohang);
+        btn_fav = findViewById(R.id.btn_fav);
     }
 
 }
