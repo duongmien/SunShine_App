@@ -22,13 +22,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.myfistapp.sunshine_app.Adapter.GioHangAdapter;
 import com.myfistapp.sunshine_app.Api.ApiService;
-import com.myfistapp.sunshine_app.Class.SanPhamDomain;
+
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.Helper.TinyDB;
 import com.myfistapp.sunshine_app.Interface.ChangeNumberItemsListener;
 import com.myfistapp.sunshine_app.Model.Chitiethoadon;
 import com.myfistapp.sunshine_app.Model.Hoadon;
 import com.myfistapp.sunshine_app.Model.Khachhang;
+import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.R;
 import com.myfistapp.sunshine_app.Activity.TrangCaNhan;
 
@@ -80,15 +81,20 @@ public class GioHang extends AppCompatActivity {
         btndiachi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                startActivity(new Intent(GioHang.this, LienHe.class));
+                Intent intent =  new Intent(GioHang.this, LienHe.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
             }
         });
 
         btnpttt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GioHang.this, ThanhToan.class));
+            Intent intent =  new Intent(GioHang.this, ThanhToan.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
             }
         });
         btndathang.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +103,9 @@ public class GioHang extends AppCompatActivity {
                 if(pttt.getText()==""){
                     Toast.makeText(GioHang.this, "Hãy chọn phương thức thanh toán", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(GioHang.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
                     createNewOrder();
+                    Toast.makeText(GioHang.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -109,10 +116,11 @@ public class GioHang extends AppCompatActivity {
         hoadon.setIdkh(khachhang.getIdkh());
         hoadon.setHinhthucthanhtoan(Pttt);
 
+       // hoadon1 = new Hoadon();
         ApiService.apiService.createOrder(hoadon).enqueue(new Callback<Hoadon>() {
             @Override
             public void onResponse(Call<Hoadon> call, Response<Hoadon> response) {
-
+           //     hoadon1 = response.body();
             }
 
             @Override
@@ -120,11 +128,34 @@ public class GioHang extends AppCompatActivity {
 
             }
         });
-        hoadon1 = new ArrayList<>();
+
+
+
+        IDHD =showListnewest();
+        ArrayList<SanPhamDomain> danhsachsanpham = managementCart.getListCard();
+        for(int i=0;i<danhsachsanpham.size();i++){
+            Chitiethoadon ct = new Chitiethoadon();
+            ct.setIdhd(IDHD);
+            ct.setIdsp(danhsachsanpham.get(i).getIdsp());
+            ct.setSoluong(danhsachsanpham.get(i).getSoluongdathang());
+            createNewOrderDetail(ct);
+        }
+//        managementCart.deleteOrder();
+        Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_user",khachhang);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
+    }
+
+    private int showListnewest() {
+        final int[] i = new int[1];
         ApiService.apiService.showlistnewest().enqueue(new Callback<ArrayList<Hoadon>>() {
             @Override
             public void onResponse(Call<ArrayList<Hoadon>> call, Response<ArrayList<Hoadon>> response) {
-                hoadon1 =response.body();
+                i[0] =response.body().get(0).getIdhd();
+
             }
 
             @Override
@@ -132,23 +163,7 @@ public class GioHang extends AppCompatActivity {
 
             }
         });
-        hoadon1.get(0).getIdhd();
-        ArrayList<SanPhamDomain> danhsachsanpham = managementCart.getListCard();
-        for(int i=0;i<danhsachsanpham.size();i++){
-
-            Chitiethoadon ct = new Chitiethoadon();
-            ct.setIdhd(IDHD);
-            ct.setIdsp(danhsachsanpham.get(i).getIdsp());
-            ct.setSoluong(danhsachsanpham.get(i).getSoluongdathang());
-            createNewOrderDetail(ct);
-        }
-        managementCart.deleteOrder();
-        Intent intent = new Intent(getApplicationContext(), TrangChu.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object_user",khachhang);
-        intent.putExtras(bundle);
-        startActivity(intent);
-
+        return i[0];
     }
 
     private void createNewOrderDetail(Chitiethoadon c) {

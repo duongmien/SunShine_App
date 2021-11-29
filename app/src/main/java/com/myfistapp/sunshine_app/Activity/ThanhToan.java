@@ -13,17 +13,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myfistapp.sunshine_app.Helper.TinyDB;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 public class ThanhToan extends AppCompatActivity {
     private TextView btn_thanhtoan;
     private CheckBox chb1, chb2, chb3, chb4;
+    private  Khachhang khachhang;
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_thanh_toan);
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
+        Toast.makeText(ThanhToan.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
         initView();
 
         chb1.setOnClickListener(new View.OnClickListener() {
@@ -71,24 +78,36 @@ public class ThanhToan extends AppCompatActivity {
                         editor.putString("pttt", "COD");
                         editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_user",khachhang);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
                     if(chb2.isChecked()){
                         editor.putString("pttt", "Momo");
                         editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_user",khachhang);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
                     if(chb3.isChecked()){
                         editor.putString("pttt", "ZaloPay");
                         editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_user",khachhang);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
                     if(chb4.isChecked()){
                         editor.putString("pttt", "Banking");
                         editor.apply();
                         Intent intent = new Intent(ThanhToan.this, GioHang.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("object_user",khachhang);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
                 }

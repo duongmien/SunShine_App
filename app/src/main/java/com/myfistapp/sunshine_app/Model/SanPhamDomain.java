@@ -10,10 +10,12 @@ public class SanPhamDomain implements Serializable {
     private int idsp;
     private int iddm;
     private String tensanpham;
+    @SerializedName("motasanpham")
     private String thongtinsanpham;
     private String anhsanpham;
     private String giasanpham;
     private String kcal;
+    @SerializedName("thoigianchebien")
     private String thoigian;
     private int soluongdathang;
     private String danhgiasanpham="5";

@@ -5,6 +5,15 @@ public class Chitiethoadon {
     private int idsp;
     private int soluong;
 
+    @Override
+    public String toString() {
+        return "Chitiethoadon{" +
+                "idhd=" + idhd +
+                ", idsp=" + idsp +
+                ", soluong=" + soluong +
+                '}';
+    }
+
     public int getIdhd() {
         return idhd;
     }

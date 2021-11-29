@@ -6,20 +6,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 public class LienHe extends AppCompatActivity {
 
     TextView btn_diachi,btn_hoanthanh,ten,sdt,sonha;
+    private Khachhang khachhang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_lien_he);
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
+        }
+        Toast.makeText(LienHe.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
         initView();
         Intent intent = getIntent();
         String diachi = intent.getStringExtra("DiaChi");
@@ -38,6 +46,9 @@ public class LienHe extends AppCompatActivity {
                 editor.putString("diachi", lienhe);
                 editor.apply();
                 Intent intent = new Intent(LienHe.this, GioHang.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
