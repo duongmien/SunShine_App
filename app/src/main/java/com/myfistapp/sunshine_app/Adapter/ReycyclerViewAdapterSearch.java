@@ -39,8 +39,7 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txttensanpham.setText(sanPhamDomains.get(position).getTensanpham());
-        holder.txtgiasanpham.setText(sanPhamDomains.get(position).getGiasanpham());
-
+         holder.txtgiasanpham.setText(sanPhamDomains.get(position).getGiasanpham());
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(sanPhamDomains.get(position).getAnhsanpham(), "drawable", holder.itemView.getContext().getPackageName());
 
@@ -81,9 +80,7 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
             super(itemView);
             txttensanpham = itemView.findViewById(R.id.txt_tensanpham);
             imgsanpham = itemView.findViewById(R.id.img_sanpham_giohang);
-            txttensanpham = itemView.findViewById(R.id.txt_giasanpham);
-
-
+            txtgiasanpham = itemView.findViewById(R.id.txt_giasanpham);
         }
     }
 }
