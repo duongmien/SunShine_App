@@ -1,6 +1,5 @@
 package com.myfistapp.sunshine_app.Activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +16,7 @@ import com.myfistapp.sunshine_app.Api.ApiService;
 import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Helper.ManagementCart;
 import com.myfistapp.sunshine_app.Model.Khachhang;
-import com.myfistapp.sunshine_app.Model.Yeuthich;
+import com.myfistapp.sunshine_app.Model.Sanphamyeuthich;
 import com.myfistapp.sunshine_app.R;
 
 import java.text.DecimalFormat;
@@ -38,7 +37,8 @@ public class SanPham extends AppCompatActivity {
     private ToggleButton btn_fav;
     private int id_khachhang, id_sanpham;
     private int soluong = 1;
-    private ArrayList<Yeuthich> yeuthiches ;
+    private ArrayList<Sanphamyeuthich> sanphamyeuthiches;
+    private boolean ch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,6 @@ public class SanPham extends AppCompatActivity {
 
         managementCart = new ManagementCart(this);
         initView();
-
         getBundle();
     }
     public static String currencyFormat(String amount) {
@@ -76,7 +75,8 @@ public class SanPham extends AppCompatActivity {
 
         id_khachhang = khachhang.getIdkh();
         id_sanpham = object.getIdsp();
-
+        showFav(id_khachhang);
+        checkFavorite(id_khachhang,id_sanpham);
         if(checkFavorite(id_khachhang,id_sanpham)){
             btn_fav.setChecked(true);
         }else {
@@ -127,16 +127,16 @@ public class SanPham extends AppCompatActivity {
         });
     }
 
-    private void showFav(int id_khachhang, int id_sanpham) {
-
-        ApiService.apiService.showFavorite(id_khachhang).enqueue(new Callback<ArrayList<Yeuthich>>() {
+    private void showFav(int id_khachhang) {
+        sanphamyeuthiches=new ArrayList<Sanphamyeuthich>();
+        ApiService.apiService.showFavorite(id_khachhang).enqueue(new Callback<ArrayList<Sanphamyeuthich>>() {
             @Override
-            public void onResponse(Call<ArrayList<Yeuthich>> call, Response<ArrayList<Yeuthich>> response) {
-                yeuthiches = response.body();
+            public void onResponse(Call<ArrayList<Sanphamyeuthich>> call, Response<ArrayList<Sanphamyeuthich>> response) {
+                sanphamyeuthiches = response.body();
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Yeuthich>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Sanphamyeuthich>> call, Throwable t) {
 
             }
         });
@@ -144,14 +144,14 @@ public class SanPham extends AppCompatActivity {
 
     private void setunFav(int id_khachhang, int id_sanpham) {
         if (checkFavorite(id_khachhang,id_sanpham)){
-            ApiService.apiService.deleteFavorite(id_khachhang,id_sanpham).enqueue(new Callback<Yeuthich>() {
+            ApiService.apiService.deleteFavorite(id_khachhang,id_sanpham).enqueue(new Callback<Sanphamyeuthich>() {
                 @Override
-                public void onResponse(Call<Yeuthich> call, Response<Yeuthich> response) {
+                public void onResponse(Call<Sanphamyeuthich> call, Response<Sanphamyeuthich> response) {
                     Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onFailure(Call<Yeuthich> call, Throwable t) {
+                public void onFailure(Call<Sanphamyeuthich> call, Throwable t) {
 
                 }
             });
@@ -164,15 +164,15 @@ public class SanPham extends AppCompatActivity {
         if (checkFavorite(id_khachhang,id_sanpham)){
             return;
         }else {
-            Yeuthich yeuthich2 = new Yeuthich(id_khachhang,id_sanpham);
-            ApiService.apiService.addFavorite(yeuthich2).enqueue(new Callback<Yeuthich>() {
+            Sanphamyeuthich sanphamyeuthich2 = new Sanphamyeuthich(id_khachhang,id_sanpham);
+            ApiService.apiService.addFavorite(sanphamyeuthich2).enqueue(new Callback<Sanphamyeuthich>() {
                 @Override
-                public void onResponse(Call<Yeuthich> call, Response<Yeuthich> response) {
+                public void onResponse(Call<Sanphamyeuthich> call, Response<Sanphamyeuthich> response) {
                     Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onFailure(Call<Yeuthich> call, Throwable t) {
+                public void onFailure(Call<Sanphamyeuthich> call, Throwable t) {
 
                 }
             });
@@ -181,9 +181,11 @@ public class SanPham extends AppCompatActivity {
 
     private boolean checkFavorite(int id_khachhang, int id_sanpham) {
         boolean isHasFav = false;
-        showFav(id_khachhang,id_sanpham);
-        for(Yeuthich yeuthich: yeuthiches){
-            if(id_khachhang==yeuthich.getIdkh() && id_sanpham == yeuthich.getIdsp()){
+        if(sanphamyeuthiches == null || sanphamyeuthiches.isEmpty()){
+            return false;
+        }
+        for(Sanphamyeuthich sanphamyeuthich : sanphamyeuthiches){
+            if(id_khachhang== sanphamyeuthich.getIdkh() && id_sanpham == sanphamyeuthich.getIdsp()){
                 isHasFav = true;
                 break;
             }

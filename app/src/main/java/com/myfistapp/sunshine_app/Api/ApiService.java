@@ -7,7 +7,7 @@ import com.myfistapp.sunshine_app.Model.Chitiethoadon;
 import com.myfistapp.sunshine_app.Model.Hoadon;
 import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.Model.Khachhang;
-import com.myfistapp.sunshine_app.Model.Yeuthich;
+import com.myfistapp.sunshine_app.Model.Sanphamyeuthich;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public interface ApiService {
             .create();
 
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.4:8080/")
+            .baseUrl("http://192.168.1.8:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -50,13 +50,13 @@ public interface ApiService {
     @POST("chitiethoadon/add")
     Call<Chitiethoadon> createOrderDetail(@Body Chitiethoadon chitiethoadon);
 
-    @GET("yeuthich/list/{idkh}")
-    Call<ArrayList<Yeuthich>> showFavorite( @Path("idkh")int idkh);
+    @GET("sanphamyeuthich/list/{idkh}")
+    Call<ArrayList<Sanphamyeuthich>> showFavorite(@Path("idkh")int idkh);
 
-    @POST("yeuthich/add")
-    Call<Yeuthich> addFavorite(@Body Yeuthich yeuthich);
+    @POST("sanphamyeuthich/add")
+    Call<Sanphamyeuthich> addFavorite(@Body Sanphamyeuthich sanphamyeuthich);
 
-    @POST("yeuthich/delete/{idkh}/{idsp}")
-    Call<Yeuthich> deleteFavorite(@Path("idkh")int idkh,@Path("idsp")int idsp);
+    @POST("sanphamyeuthich/delete/{idkh}/{idsp}")
+    Call<Sanphamyeuthich> deleteFavorite(@Path("idkh")int idkh, @Path("idsp")int idsp);
 
 }

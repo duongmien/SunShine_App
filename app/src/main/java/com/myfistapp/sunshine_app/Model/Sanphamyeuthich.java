@@ -1,10 +1,10 @@
 package com.myfistapp.sunshine_app.Model;
 
-public class Yeuthich {
+public class Sanphamyeuthich {
     private int idkh;
     private int idsp;
 
-    public Yeuthich(int idkh, int idsp) {
+    public Sanphamyeuthich(int idkh, int idsp) {
         this.idkh = idkh;
         this.idsp = idsp;
     }
