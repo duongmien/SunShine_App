@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,6 +20,7 @@ import com.myfistapp.sunshine_app.R;
 public class TrangCaNhan extends AppCompatActivity {
 
     LinearLayout tab_ttcn, tab_lsmh, tab_dcgh, tab_xtk, tab_thoat, tab_tlmk;
+    TextView txtx_name;
     private Khachhang khachhang;
 
     @Override
@@ -34,6 +36,7 @@ public class TrangCaNhan extends AppCompatActivity {
         Toast.makeText(TrangCaNhan.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         AnhXa();
+        txtx_name.setText(khachhang.getHovaten());
         OnTab();
         bottomNavigation();
 
@@ -46,6 +49,7 @@ public class TrangCaNhan extends AppCompatActivity {
         tab_xtk = findViewById(R.id.tab_xtk);
         tab_thoat = findViewById(R.id.tab_thoat);
         tab_tlmk = findViewById(R.id.tab_tlmk);
+        txtx_name = findViewById(R.id.textView);
     }
 
     public void OnTab() {
@@ -54,6 +58,9 @@ public class TrangCaNhan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TrangCaNhan.this, ThongTinCaNhanH2.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

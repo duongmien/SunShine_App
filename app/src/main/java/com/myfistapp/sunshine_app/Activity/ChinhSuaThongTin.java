@@ -13,12 +13,19 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.myfistapp.sunshine_app.Api.ApiService;
+import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ChinhSuaThongTin extends AppCompatActivity {
 
@@ -26,6 +33,9 @@ public class ChinhSuaThongTin extends AppCompatActivity {
     Button btn_luu_cstt;
     EditText edt_hoten, edt_gioitinh, edt_ngaysinh, edt_sdt, edt_email;
     RadioButton rbt_nam, rbt_nu, rbt_khac;
+    private Khachhang khachhang;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +53,6 @@ public class ChinhSuaThongTin extends AppCompatActivity {
         btn_luu_cstt = findViewById(R.id.btn_luu_cstt);
 
         edt_hoten = findViewById(R.id.edt_cstt_hoten);
-//        edt_gioitinh = findViewById(R.id.edt_cstt_gioitinh);
         edt_ngaysinh = findViewById(R.id.edt_cstt_ngaysinh);
         edt_sdt = findViewById(R.id.edt_cstt_sdt);
         edt_email = findViewById(R.id.edt_cstt_email);
@@ -59,6 +68,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChinhSuaThongTin.this, ThongTinCaNhanH2.class);
+
                 startActivity(intent);
             }
         });
@@ -71,29 +81,78 @@ public class ChinhSuaThongTin extends AppCompatActivity {
             }
         });
 
+        btn_luu_cstt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveInfor(khachhang);
+                updateKH(khachhang);
+                Intent intent = new Intent(ChinhSuaThongTin.this, ThongTinCaNhanH2.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void updateKH(Khachhang khachhang) {
+        ApiService.apiService.updateKhachhang(khachhang,khachhang.getIdkh()).enqueue(new Callback<Khachhang>() {
+            @Override
+            public void onResponse(Call<Khachhang> call, Response<Khachhang> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(ChinhSuaThongTin.this,"Cập nhật thành công!!!",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Khachhang> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void saveInfor(Khachhang khachhang) {
+        khachhang.setHovaten(edt_hoten.getText().toString());
+        khachhang.setNgaysinh(edt_ngaysinh.getText().toString());
+        khachhang.setSdt(edt_sdt.getText().toString());
+        khachhang.setEmail(edt_email.getText().toString());
+
+        if (rbt_nam.isChecked()){
+            khachhang.setGioitinh("Nam");
+        }else {
+            if (rbt_nu.isChecked()){
+                khachhang.setGioitinh("Nữ");
+            }else {
+                khachhang.setGioitinh("Khác");
+            }
+        }
     }
 
     public void nhanData() {
-        Intent intent = getIntent();
-        Bundle bundle = intent.getBundleExtra("thongtinduoidung");
+        Bundle bundleRecevie = getIntent().getExtras();
+        if(bundleRecevie!=null){
+            khachhang = (Khachhang) bundleRecevie.get("object_user");
 
-        if (bundle != null) {
-            edt_hoten.setText(bundle.getString("hoten", ""));
-//            edt_gioitinh.setText(bundle.getString("gioitinh", ""));
-            edt_ngaysinh.setText(bundle.getString("ngaysinh", ""));
-            edt_sdt.setText(bundle.getString("sdt", ""));
-            edt_email.setText(bundle.getString("email", ""));
+            edt_hoten.setText(khachhang.getHovaten());
+            edt_ngaysinh.setText(khachhang.getNgaysinh());
+            edt_sdt.setText(khachhang.getSdt());
+            edt_email.setText(khachhang.getEmail());
 
-            String gioitinh = bundle.getString("gioitinh", "");
+            String gioitinh = khachhang.getGioitinh();
             if (gioitinh.equals("Nam")) {
                 rbt_nam.isSelected();
             } else {
                 if (gioitinh.equals("Nữ")) {
                     rbt_nu.isSelected();
-                } else
-                    rbt_khac.isSelected();
+                } else{
+                    if (gioitinh.equals("Nữ")){
+                        rbt_khac.isSelected();
+                    }
+                }
             }
         }
+        Toast.makeText(ChinhSuaThongTin.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
     }
 
     public void ChonNgay() {
