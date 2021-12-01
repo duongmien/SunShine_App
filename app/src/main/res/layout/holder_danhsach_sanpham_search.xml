@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFF5F2"
+    android:padding="10dp"
     android:layout_margin="5dp">
     <ImageView
         android:id="@+id/img_sanpham_giohang"
@@ -14,23 +16,37 @@
         android:id="@+id/txt_tensanpham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/img_sanpham_giohang"
         android:layout_alignParentEnd="true"
-        android:fontFamily="@font/dancingscript"
         android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/img_sanpham_giohang"
+        android:fontFamily="@font/dancingscript"
         android:text="Vidu"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_mieuta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_tensanpham"
+        android:paddingTop="5dp"
+        android:layout_alignLeft="@id/txt_tensanpham"
+        android:fontFamily="@font/opensans"
+        android:text="miennnnnnnnnnnnnnn"
+        android:textSize="15dp"
+
+        />
+
     <TextView
         android:id="@+id/txt_giasanpham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/img_sanpham_giohang"
         android:layout_alignBottom="@id/img_sanpham_giohang"
-        android:fontFamily="@font/dancingscript"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/orange"
+        android:layout_toRightOf="@id/img_sanpham_giohang"
+        android:fontFamily="@font/opensans"
         android:text="20.000"
+        android:textColor="@color/orange"
         android:textSize="20sp"
         android:textStyle="bold" />
 </RelativeLayout>

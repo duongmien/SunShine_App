@@ -17,6 +17,7 @@ import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.Model.SanPhamDomain;
 import com.myfistapp.sunshine_app.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerViewAdapterSearch.ViewHolder> {
@@ -35,11 +36,15 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
 
         return new ViewHolder(inflate);
     }
-
+    public static String currencyFormat(String amount) {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format(Double.parseDouble(amount));
+    }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txttensanpham.setText(sanPhamDomains.get(position).getTensanpham());
-         holder.txtgiasanpham.setText(sanPhamDomains.get(position).getGiasanpham());
+        holder.txtgiasanpham.setText(currencyFormat(sanPhamDomains.get(position).getGiasanpham())+" VNĐ");
+        holder.txtmieuta.setText(sanPhamDomains.get(position).getThongtinsanpham().substring(0,60)+"...");
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(sanPhamDomains.get(position).getAnhsanpham(), "drawable", holder.itemView.getContext().getPackageName());
 
@@ -73,7 +78,7 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txttensanpham, txtgiasanpham;
+        TextView txttensanpham, txtgiasanpham, txtmieuta;
         ImageView imgsanpham;
 
         public ViewHolder(@NonNull View itemView) {
@@ -81,6 +86,7 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
             txttensanpham = itemView.findViewById(R.id.txt_tensanpham);
             imgsanpham = itemView.findViewById(R.id.img_sanpham_giohang);
             txtgiasanpham = itemView.findViewById(R.id.txt_giasanpham);
+            txtmieuta=itemView.findViewById(R.id.txt_mieuta);
         }
     }
 }

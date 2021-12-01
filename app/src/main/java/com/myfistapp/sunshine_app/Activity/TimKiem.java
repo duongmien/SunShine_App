@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.myfistapp.sunshine_app.Adapter.ReycyclerViewAdapter;
@@ -29,6 +32,7 @@ public class TimKiem extends AppCompatActivity {
     private RecyclerView  recyclerViewPopularList;
     private Khachhang khachhang;
     private EditText txtSearch;
+    ImageView img_back;
     private ArrayList<SanPhamDomain> danhsachsanpham;
 
     @Override
@@ -43,6 +47,17 @@ public class TimKiem extends AppCompatActivity {
         }
         recyclerViewPopular();
         txtSearch = findViewById(R.id.search_text);
+        img_back=findViewById(R.id.btn_back);
+        img_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         txtSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
