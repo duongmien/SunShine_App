@@ -12,18 +12,19 @@
         android:layout_height="wrap_content"
         android:background="@color/orange"
         android:gravity="center"
-        android:orientation="horizontal"
         android:paddingTop="35dp"
         android:paddingBottom="35dp">
 
         <EditText
+            android:id="@+id/search_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
-
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_searchbox"
+            android:drawableRight="@drawable/ic_search"
+            android:focusable="false"
             android:fontFamily="@font/opensans"
             android:hint="Tìm kiếm ở đây..."
             android:padding="10dp" />
