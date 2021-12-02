@@ -32,6 +32,9 @@ public interface ApiService {
     @GET("sanpham/list")
     Call<ArrayList<SanPhamDomain>> showitem();
 
+    @GET("sanpham/listdm/{iddm}")
+    Call<ArrayList<SanPhamDomain>> showitemcat(@Path("iddm")int iddm);
+
     @POST("khachhang/add")
     Call<Khachhang> createUser(@Body Khachhang khachHang);
 

@@ -44,7 +44,7 @@ public class ReycyclerViewAdapterSearch extends RecyclerView.Adapter<ReycyclerVi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txttensanpham.setText(sanPhamDomains.get(position).getTensanpham());
         holder.txtgiasanpham.setText(currencyFormat(sanPhamDomains.get(position).getGiasanpham())+" VNĐ");
-        holder.txtmieuta.setText(sanPhamDomains.get(position).getThongtinsanpham().substring(0,60)+"...");
+        holder.txtmieuta.setText(sanPhamDomains.get(position).getThongtinsanpham().substring(0,40)+"...");
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(sanPhamDomains.get(position).getAnhsanpham(), "drawable", holder.itemView.getContext().getPackageName());
 

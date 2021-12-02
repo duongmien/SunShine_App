@@ -31,7 +31,7 @@ public class ThongTinCaNhanH2 extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
-        Toast.makeText(ThongTinCaNhanH2.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(ThongTinCaNhanH2.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         AnhXa();
         setInfor(khachhang);

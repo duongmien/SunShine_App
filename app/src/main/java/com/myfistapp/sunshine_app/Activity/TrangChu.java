@@ -115,8 +115,6 @@ public class TrangChu extends AppCompatActivity {
 
         recyclerViewPopular();
         recyclerViewCategory();
-
-
     }
 
 

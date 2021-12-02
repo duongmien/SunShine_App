@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import com.myfistapp.sunshine_app.Activity.ItemCat;
 import com.myfistapp.sunshine_app.Activity.SanPham;
 import com.myfistapp.sunshine_app.Class.CategoryDomain;
 import com.myfistapp.sunshine_app.Model.Danhmuc;
 import com.myfistapp.sunshine_app.Model.Khachhang;
 import com.myfistapp.sunshine_app.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
@@ -46,17 +48,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.categoryPic);
-//        holder.categoryPic.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Intent intent = new Intent(holder.itemView.getContext(), SanPham.class);
-////                intent.putExtra("object", categoryDomains.get(position));
-////                Bundle bundle = new Bundle();
-////                bundle.putSerializable("object_user",khachhang);
-////                intent.putExtras(bundle);
-////                holder.itemView.getContext().startActivity(intent);
-////            }
-//        });
+        holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), ItemCat.class);
+                intent.putExtra("object",categoryDomains.get(position).getIddm());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("object_user",khachhang);
+                intent.putExtras(bundle);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {

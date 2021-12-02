@@ -14,9 +14,11 @@
         android:theme="@style/Theme.SunShine_App"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activity.TimKiem"
+            android:name=".Activity.ItemCat"
             android:exported="true" />
-        <!-- <activity -->
+        <activity
+            android:name=".Activity.TimKiem"
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".Activity.DanhMuc" -->
         <!-- android:exported="true" /> -->
         <activity

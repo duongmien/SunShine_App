@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FFF5F2"
-    android:padding="10dp"
+    android:padding="5dp"
     android:layout_margin="5dp">
     <ImageView
         android:id="@+id/img_sanpham_giohang"
@@ -29,12 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_tensanpham"
-        android:paddingTop="5dp"
         android:layout_alignLeft="@id/txt_tensanpham"
         android:fontFamily="@font/opensans"
         android:text="miennnnnnnnnnnnnnn"
-        android:textSize="15dp"
-
+        android:textSize="13dp"
         />
 
     <TextView

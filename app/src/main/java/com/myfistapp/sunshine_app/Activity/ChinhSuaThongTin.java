@@ -42,10 +42,11 @@ public class ChinhSuaThongTin extends AppCompatActivity {
         setContentView(R.layout.activity_chinh_sua_thong_tin);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         AnhXa();
+        nhanData();
         OnTab();
 
         //nhận dữ liệu là 1 địa chỉ từ trang địa chỉ
-        nhanData();
+
     }
 
     public void AnhXa() {
@@ -85,7 +86,19 @@ public class ChinhSuaThongTin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveInfor(khachhang);
-                updateKH(khachhang);
+                ApiService.apiService.updateKhachhang(khachhang,khachhang.getIdkh()).enqueue(new Callback<Khachhang>() {
+                    @Override
+                    public void onResponse(Call<Khachhang> call, Response<Khachhang> response) {
+                        if(response.isSuccessful()){
+                            Toast.makeText(ChinhSuaThongTin.this,"Cập nhật thành công!!!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Khachhang> call, Throwable t) {
+                        Toast.makeText(ChinhSuaThongTin.this,"Thaats bai!!!",Toast.LENGTH_LONG).show();
+                    }
+                });
                 Intent intent = new Intent(ChinhSuaThongTin.this, ThongTinCaNhanH2.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object_user",khachhang);
@@ -94,22 +107,6 @@ public class ChinhSuaThongTin extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void updateKH(Khachhang khachhang) {
-        ApiService.apiService.updateKhachhang(khachhang,khachhang.getIdkh()).enqueue(new Callback<Khachhang>() {
-            @Override
-            public void onResponse(Call<Khachhang> call, Response<Khachhang> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(ChinhSuaThongTin.this,"Cập nhật thành công!!!",Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Khachhang> call, Throwable t) {
-
-            }
-        });
     }
 
     private void saveInfor(Khachhang khachhang) {
@@ -152,7 +149,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
                 }
             }
         }
-        Toast.makeText(ChinhSuaThongTin.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(ChinhSuaThongTin.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
     }
 
     public void ChonNgay() {
