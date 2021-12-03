@@ -105,7 +105,6 @@ public class GioHang extends AppCompatActivity {
                 }else {
                     createNewOrder();
                     Toast.makeText(GioHang.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -140,7 +139,7 @@ public class GioHang extends AppCompatActivity {
             ct.setSoluong(danhsachsanpham.get(i).getSoluongdathang());
             createNewOrderDetail(ct);
         }
-//        managementCart.deleteOrder();
+        managementCart.deleteOrder();
         Intent intent = new Intent(getApplicationContext(), TrangChu.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_user",khachhang);

@@ -62,7 +62,7 @@ public interface ApiService {
     @POST("sanphamyeuthich/delete/{idkh}/{idsp}")
     Call<Sanphamyeuthich> deleteFavorite(@Path("idkh")int idkh, @Path("idsp")int idsp);
 
-    @POST("update/{id}")
+    @POST("khachhang/update/{id}")
     Call<Khachhang> updateKhachhang(@Body Khachhang khachhang,@Path("id") int id);
 
 }
