@@ -76,12 +76,7 @@ public class SanPham extends AppCompatActivity {
         id_khachhang = khachhang.getIdkh();
         id_sanpham = object.getIdsp();
         showFav(id_khachhang);
-        checkFavorite(id_khachhang,id_sanpham);
-        if(checkFavorite(id_khachhang,id_sanpham)){
-            btn_fav.setChecked(true);
-        }else {
-            btn_fav.setChecked(false);
-        }
+
 
         btn_fav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,10 +124,16 @@ public class SanPham extends AppCompatActivity {
 
     private void showFav(int id_khachhang) {
         sanphamyeuthiches=new ArrayList<Sanphamyeuthich>();
+
         ApiService.apiService.showFavorite(id_khachhang).enqueue(new Callback<ArrayList<Sanphamyeuthich>>() {
             @Override
             public void onResponse(Call<ArrayList<Sanphamyeuthich>> call, Response<ArrayList<Sanphamyeuthich>> response) {
                 sanphamyeuthiches = response.body();
+                if(checkFavorite(id_khachhang,id_sanpham)){
+                    btn_fav.setChecked(true);
+                }else {
+                    btn_fav.setChecked(false);
+                }
             }
 
             @Override
