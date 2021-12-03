@@ -53,6 +53,7 @@ public class SanPham extends AppCompatActivity {
 
         managementCart = new ManagementCart(this);
         initView();
+        showFav(khachhang.getIdkh());
         getBundle();
     }
     public static String currencyFormat(String amount) {
@@ -73,11 +74,9 @@ public class SanPham extends AppCompatActivity {
         txt_thongtinsanpham.setText(object.getThongtinsanpham());
         txt_soluongsanpham.setText(String.valueOf(soluong));
 
-        id_khachhang = khachhang.getIdkh();
         id_sanpham = object.getIdsp();
-        showFav(id_khachhang);
-        checkFavorite(id_khachhang,id_sanpham);
-        if(checkFavorite(id_khachhang,id_sanpham)){
+
+        if(checkFavorite(id_sanpham)){
             btn_fav.setChecked(true);
         }else {
             btn_fav.setChecked(false);
@@ -88,9 +87,9 @@ public class SanPham extends AppCompatActivity {
             public void onClick(View view) {
                 boolean checked = ((ToggleButton) view).isChecked();
                 if (checked){
-                    setFav(id_khachhang,id_sanpham);
+                    setFav(khachhang.getIdkh(),id_sanpham);
                 }else {
-                    setunFav(id_khachhang,id_sanpham);
+                    setunFav(khachhang.getIdkh(),id_sanpham);
                 }
             }
         });
@@ -143,11 +142,10 @@ public class SanPham extends AppCompatActivity {
     }
 
     private void setunFav(int id_khachhang, int id_sanpham) {
-        if (checkFavorite(id_khachhang,id_sanpham)){
             ApiService.apiService.deleteFavorite(id_khachhang,id_sanpham).enqueue(new Callback<Sanphamyeuthich>() {
                 @Override
                 public void onResponse(Call<Sanphamyeuthich> call, Response<Sanphamyeuthich> response) {
-                    Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SanPham.this,"Đã xóa khỏi yêu thích", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -155,15 +153,11 @@ public class SanPham extends AppCompatActivity {
 
                 }
             });
-        }else {
-            return;
-        }
+
     }
 
     private void setFav(int id_khachhang, int id_sanpham) {
-        if (checkFavorite(id_khachhang,id_sanpham)){
-            return;
-        }else {
+
             Sanphamyeuthich sanphamyeuthich2 = new Sanphamyeuthich(id_khachhang,id_sanpham);
             ApiService.apiService.addFavorite(sanphamyeuthich2).enqueue(new Callback<Sanphamyeuthich>() {
                 @Override
@@ -176,16 +170,16 @@ public class SanPham extends AppCompatActivity {
 
                 }
             });
-        }
+
     }
 
-    private boolean checkFavorite(int id_khachhang, int id_sanpham) {
+    private boolean checkFavorite(int id_sanpham) {
         boolean isHasFav = false;
         if(sanphamyeuthiches == null || sanphamyeuthiches.isEmpty()){
             return false;
         }
         for(Sanphamyeuthich sanphamyeuthich : sanphamyeuthiches){
-            if(id_khachhang== sanphamyeuthich.getIdkh() && id_sanpham == sanphamyeuthich.getIdsp()){
+            if(id_sanpham == sanphamyeuthich.getIdsp()){
                 isHasFav = true;
                 break;
             }
