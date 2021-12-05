@@ -60,6 +60,7 @@ public class Introduction extends AppCompatActivity {
         skipbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                handler.removeCallbacks(runnable);
                 Intent i = new Intent(Introduction.this, Splash.class);
                 startActivity(i);
                 finish();
