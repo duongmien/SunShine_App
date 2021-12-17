@@ -5,6 +5,7 @@
     android:background="#FFF5F2"
     android:padding="5dp"
     android:layout_margin="5dp">
+
     <ImageView
         android:id="@+id/img_sanpham_giohang"
         android:layout_width="100dp"

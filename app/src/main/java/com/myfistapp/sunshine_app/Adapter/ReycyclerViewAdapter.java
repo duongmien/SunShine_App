@@ -42,7 +42,6 @@ public class ReycyclerViewAdapter extends RecyclerView.Adapter<ReycyclerViewAdap
         holder.txttensanpham.setText(sanPhamDomains.get(position).getTensanpham());
 
         int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(sanPhamDomains.get(position).getAnhsanpham(), "drawable", holder.itemView.getContext().getPackageName());
-
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.imgsanpham);

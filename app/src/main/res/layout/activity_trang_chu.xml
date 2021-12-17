@@ -75,10 +75,10 @@
                 <TextView
                     android:id="@id/textView11"
                     android:layout_width="wrap_content"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/opensans"
                     android:layout_height="wrap_content"
-                    android:text="Danh Mục" />
+                    android:fontFamily="@font/opensans"
+                    android:text="Danh Mục"
+                    android:textSize="18sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView_danhmuc"

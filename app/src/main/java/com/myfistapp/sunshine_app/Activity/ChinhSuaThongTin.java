@@ -93,7 +93,6 @@ public class ChinhSuaThongTin extends AppCompatActivity {
                             Toast.makeText(ChinhSuaThongTin.this,"Cập nhật thành công!!!",Toast.LENGTH_LONG).show();
                         }
                     }
-
                     @Override
                     public void onFailure(Call<Khachhang> call, Throwable t) {
                         Toast.makeText(ChinhSuaThongTin.this,"Thaats bai!!!",Toast.LENGTH_LONG).show();

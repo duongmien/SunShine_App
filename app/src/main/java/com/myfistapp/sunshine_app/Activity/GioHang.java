@@ -85,6 +85,7 @@ public class GioHang extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object_user",khachhang);
                 intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 
@@ -95,6 +96,7 @@ public class GioHang extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("object_user",khachhang);
                 intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         btndathang.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +121,8 @@ public class GioHang extends AppCompatActivity {
         ApiService.apiService.createOrder(hoadon).enqueue(new Callback<Hoadon>() {
             @Override
             public void onResponse(Call<Hoadon> call, Response<Hoadon> response) {
-           //     hoadon1 = response.body();
+                Hoadon hd = response.body();
+                IDHD = hd.getIdhd();
             }
 
             @Override
@@ -127,10 +130,22 @@ public class GioHang extends AppCompatActivity {
 
             }
         });
+        ApiService.apiService.showlistnewest().enqueue(new Callback<ArrayList<Hoadon>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Hoadon>> call, Response<ArrayList<Hoadon>> response) {
+                ArrayList<Hoadon> hd = response.body();
+                IDHD = hd.get(0).getIdhd();
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Hoadon>> call, Throwable t) {
+
+            }
+        });
 
 
 
-        IDHD =showListnewest();
         ArrayList<SanPhamDomain> danhsachsanpham = managementCart.getListCard();
         for(int i=0;i<danhsachsanpham.size();i++){
             Chitiethoadon ct = new Chitiethoadon();
@@ -150,18 +165,7 @@ public class GioHang extends AppCompatActivity {
 
     private int showListnewest() {
         final int[] i = new int[1];
-        ApiService.apiService.showlistnewest().enqueue(new Callback<ArrayList<Hoadon>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Hoadon>> call, Response<ArrayList<Hoadon>> response) {
-                i[0] =response.body().get(0).getIdhd();
 
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Hoadon>> call, Throwable t) {
-
-            }
-        });
         return i[0];
     }
 
