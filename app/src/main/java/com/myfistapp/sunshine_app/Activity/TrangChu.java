@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.myfistapp.sunshine_app.Adapter.CategoryAdapter;
 import com.myfistapp.sunshine_app.Adapter.PhotoViewPagerAdapter;
@@ -60,6 +62,7 @@ public class TrangChu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         setContentView(R.layout.activity_trang_chu);
 
         Bundle bundleRecevie = getIntent().getExtras();
