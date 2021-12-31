@@ -242,7 +242,6 @@ public class TrangChu extends AppCompatActivity {
         ApiService.apiService.showitem().enqueue(new Callback<ArrayList<SanPhamDomain>>() {
             @Override
             public void onResponse(Call<ArrayList<SanPhamDomain>> call, Response<ArrayList<SanPhamDomain>> response) {
-                Toast.makeText(TrangChu.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
                 ArrayList<SanPhamDomain> danhsachsanpham = response.body();
                 adapter = new ReycyclerViewAdapter(danhsachsanpham,khachhang);
                 recyclerViewPopularList.setAdapter(adapter);
@@ -271,7 +270,6 @@ public class TrangChu extends AppCompatActivity {
         ApiService.apiService.showcat().enqueue(new Callback<ArrayList<CategoryDomain>>() {
             @Override
             public void onResponse(Call<ArrayList<CategoryDomain>> call, Response<ArrayList<CategoryDomain>> response) {
-                Toast.makeText(TrangChu.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
                 ArrayList<CategoryDomain> danhsachdanhmuc = response.body();
                 adapter = new CategoryAdapter(danhsachdanhmuc,khachhang);
                 recyclerViewCategoryList.setAdapter(adapter);

@@ -35,7 +35,6 @@ public class YeuThich extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
-        Toast.makeText(YeuThich.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         bottomNavigation();
         recyclerViewFavorite();

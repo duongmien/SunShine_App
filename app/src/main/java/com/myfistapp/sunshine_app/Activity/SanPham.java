@@ -76,23 +76,7 @@ public class SanPham extends AppCompatActivity {
 
         id_sanpham = object.getIdsp();
 
-        if(checkFavorite(id_sanpham)){
-            btn_fav.setChecked(true);
-        }else {
-            btn_fav.setChecked(false);
-        }
 
-        btn_fav.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean checked = ((ToggleButton) view).isChecked();
-                if (checked){
-                    setFav(khachhang.getIdkh(),id_sanpham);
-                }else {
-                    setunFav(khachhang.getIdkh(),id_sanpham);
-                }
-            }
-        });
 
         btn_cong.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,55 +125,11 @@ public class SanPham extends AppCompatActivity {
         });
     }
 
-    private void setunFav(int id_khachhang, int id_sanpham) {
-            ApiService.apiService.deleteFavorite(id_khachhang,id_sanpham).enqueue(new Callback<Sanphamyeuthich>() {
-                @Override
-                public void onResponse(Call<Sanphamyeuthich> call, Response<Sanphamyeuthich> response) {
-                    Toast.makeText(SanPham.this,"Đã xóa khỏi yêu thích", Toast.LENGTH_SHORT).show();
-                }
 
-                @Override
-                public void onFailure(Call<Sanphamyeuthich> call, Throwable t) {
 
-                }
-            });
 
-    }
 
-    private void setFav(int id_khachhang, int id_sanpham) {
 
-            Sanphamyeuthich sanphamyeuthich2 = new Sanphamyeuthich(id_khachhang,id_sanpham);
-            ApiService.apiService.addFavorite(sanphamyeuthich2).enqueue(new Callback<Sanphamyeuthich>() {
-                @Override
-                public void onResponse(Call<Sanphamyeuthich> call, Response<Sanphamyeuthich> response) {
-                    Toast.makeText(SanPham.this,"Đã thêm vào yêu thích", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(Call<Sanphamyeuthich> call, Throwable t) {
-
-                }
-            });
-
-    }
-
-    private boolean checkFavorite(int id_sanpham) {
-        boolean isHasFav = false;
-        if(sanphamyeuthiches == null || sanphamyeuthiches.isEmpty()){
-            return false;
-        }
-        for(Sanphamyeuthich sanphamyeuthich : sanphamyeuthiches){
-            if(id_sanpham == sanphamyeuthich.getIdsp()){
-                isHasFav = true;
-                break;
-            }
-        }
-        if (isHasFav){
-            return true;
-        }else {
-            return false;
-        }
-    }
 
     private void initView() {
         btn_themsanpham = findViewById(R.id.btn_themsanpham);

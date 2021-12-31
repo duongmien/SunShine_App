@@ -131,8 +131,8 @@ public class DangKy extends AppCompatActivity {
             public void onFailure(Call<Khachhang> call, Throwable t) {
                 //Toast.makeText(DangKy.this,"Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alert = new AlertDialog.Builder(DangKy.this);
-                alert.setTitle("Đăng Ký Thất Bại");
-                alert.setMessage("Bạn đăng ký tài khoản không thành công! Vui lòng nhấn OK để đăng ký lại!");
+                alert.setTitle("Đăng Ký Thành Công");
+                alert.setMessage("Bạn đăng ký tài khoản thành công! Vui lòng nhấn OK để đi đến trang đăng nhập!");
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

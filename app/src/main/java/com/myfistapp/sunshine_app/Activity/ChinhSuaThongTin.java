@@ -95,7 +95,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<Khachhang> call, Throwable t) {
-                        Toast.makeText(ChinhSuaThongTin.this,"Thaats bai!!!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(ChinhSuaThongTin.this,"Cập nhật thành công!!!",Toast.LENGTH_LONG).show();
                     }
                 });
                 Intent intent = new Intent(ChinhSuaThongTin.this, ThongTinCaNhanH2.class);

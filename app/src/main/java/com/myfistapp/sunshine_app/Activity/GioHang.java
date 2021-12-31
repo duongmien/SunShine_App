@@ -62,7 +62,6 @@ public class GioHang extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
-        Toast.makeText(GioHang.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         managementCart = new ManagementCart(this);
 
@@ -121,8 +120,6 @@ public class GioHang extends AppCompatActivity {
         ApiService.apiService.createOrder(hoadon).enqueue(new Callback<Hoadon>() {
             @Override
             public void onResponse(Call<Hoadon> call, Response<Hoadon> response) {
-                Hoadon hd = response.body();
-                IDHD = hd.getIdhd();
             }
 
             @Override
@@ -130,12 +127,21 @@ public class GioHang extends AppCompatActivity {
 
             }
         });
+
+
+        getidhd();
+
+
+
+    }
+
+    private void getidhd() {
         ApiService.apiService.showlistnewest().enqueue(new Callback<ArrayList<Hoadon>>() {
             @Override
             public void onResponse(Call<ArrayList<Hoadon>> call, Response<ArrayList<Hoadon>> response) {
                 ArrayList<Hoadon> hd = response.body();
-                IDHD = hd.get(0).getIdhd();
-
+                int n = hd.get(0).getIdhd();
+                order(n);
             }
 
             @Override
@@ -143,31 +149,29 @@ public class GioHang extends AppCompatActivity {
 
             }
         });
+    }
 
-
-
+    private void order(int n) {
         ArrayList<SanPhamDomain> danhsachsanpham = managementCart.getListCard();
         for(int i=0;i<danhsachsanpham.size();i++){
             Chitiethoadon ct = new Chitiethoadon();
-            ct.setIdhd(IDHD);
+            ct.setIdhd(n);
             ct.setIdsp(danhsachsanpham.get(i).getIdsp());
             ct.setSoluong(danhsachsanpham.get(i).getSoluongdathang());
             createNewOrderDetail(ct);
         }
+        delStar();
+    }
+
+    private void delStar() {
         managementCart.deleteOrder();
         Intent intent = new Intent(getApplicationContext(), TrangChu.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_user",khachhang);
         intent.putExtras(bundle);
         startActivity(intent);
-
     }
 
-    private int showListnewest() {
-        final int[] i = new int[1];
-
-        return i[0];
-    }
 
     private void createNewOrderDetail(Chitiethoadon c) {
         ApiService.apiService.createOrderDetail(c).enqueue(new Callback<Chitiethoadon>() {

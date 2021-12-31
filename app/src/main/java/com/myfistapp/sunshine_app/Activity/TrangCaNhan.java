@@ -33,7 +33,6 @@ public class TrangCaNhan extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
-        Toast.makeText(TrangCaNhan.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         AnhXa();
         txtx_name.setText(khachhang.getHovaten());

@@ -95,7 +95,6 @@ public class TimKiem extends AppCompatActivity {
         ApiService.apiService.showitem().enqueue(new Callback<ArrayList<SanPhamDomain>>() {
             @Override
             public void onResponse(Call<ArrayList<SanPhamDomain>> call, Response<ArrayList<SanPhamDomain>> response) {
-                Toast.makeText(TimKiem.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
                 danhsachsanpham = response.body();
                 adapter = new ReycyclerViewAdapterSearch(danhsachsanpham,khachhang);
                 recyclerViewPopularList.setAdapter(adapter);

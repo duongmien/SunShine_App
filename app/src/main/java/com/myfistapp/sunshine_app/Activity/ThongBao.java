@@ -26,7 +26,6 @@ public class ThongBao extends AppCompatActivity {
         if(bundleRecevie!=null){
             khachhang = (Khachhang) bundleRecevie.get("object_user");
         }
-        Toast.makeText(ThongBao.this,khachhang.toString(), Toast.LENGTH_SHORT).show();
 
         bottomNavigation();
     }

@@ -76,23 +76,6 @@
         android:textSize="16sp" />
 
 
-    <TextView
-        android:id="@+id/txt_diachi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:drawableEnd="@drawable/ic_arrow_forward"
-        android:fontFamily="@font/opensans"
-        android:hint="Tỉnh/Thành phố, Quận/Huyện, Phường,Xã"
-        android:padding="10dp"
-        android:textSize="16sp" />
-
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:padding="10dp"
-        app:srcCompat="@color/xam" />
 
     <EditText
         android:id="@+id/txt_sonha"
@@ -100,7 +83,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:fontFamily="@font/opensans"
-        android:hint="Tên đường, Số nhà"
+        android:hint="Địa chỉ"
         android:padding="10dp"
         android:textSize="16sp" />
 
