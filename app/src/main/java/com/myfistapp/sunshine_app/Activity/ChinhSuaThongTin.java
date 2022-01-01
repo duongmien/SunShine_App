@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,6 +32,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
 
     ImageView img_back_cstt;
     Button btn_luu_cstt;
+    TextView tv_tennguoidung;
     EditText edt_hoten, edt_gioitinh, edt_ngaysinh, edt_sdt, edt_email;
     RadioButton rbt_nam, rbt_nu, rbt_khac;
     private Khachhang khachhang;
@@ -61,6 +63,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
         rbt_nam = findViewById(R.id.rbt_nam_cstt);
         rbt_nu = findViewById(R.id.rbt_nu_cstt);
         rbt_khac = findViewById(R.id.rbt_khac_cstt);
+        tv_tennguoidung=findViewById(R.id.tenguoidung);
     }
 
     public void OnTab() {
@@ -134,6 +137,7 @@ public class ChinhSuaThongTin extends AppCompatActivity {
             edt_ngaysinh.setText(khachhang.getNgaysinh());
             edt_sdt.setText(khachhang.getSdt());
             edt_email.setText(khachhang.getEmail());
+            tv_tennguoidung.setText(khachhang.getTendangnhap());
 
             String gioitinh = khachhang.getGioitinh();
             if (gioitinh.equals("Nam")) {

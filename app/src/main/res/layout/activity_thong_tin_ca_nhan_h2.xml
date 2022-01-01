@@ -59,6 +59,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/img_avt"/>
                 <TextView
+                    android:id="@+id/tenguoidung"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nguyennhathy"

@@ -20,7 +20,7 @@ public class ThongTinCaNhanH2 extends AppCompatActivity {
 
     Button btn_sua_ttcn;
     ImageView img_back_ttcn;
-    TextView tv_hoten, tv_sdt, tv_gioitinh, tv_ngaysinh, tv_email;
+    TextView tv_hoten, tv_sdt, tv_gioitinh, tv_ngaysinh, tv_email,tv_tennguoidung;
     private Khachhang khachhang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class ThongTinCaNhanH2 extends AppCompatActivity {
         tv_ngaysinh.setText(khachhang.getNgaysinh());
         tv_gioitinh.setText(khachhang.getGioitinh());
         tv_sdt.setText(khachhang.getSdt());
+        tv_tennguoidung.setText(khachhang.getTendangnhap());
     }
 
     public void AnhXa() {
@@ -54,6 +55,7 @@ public class ThongTinCaNhanH2 extends AppCompatActivity {
         tv_ngaysinh = findViewById(R.id.tv_ttcn_ngaysinh);
         tv_gioitinh = findViewById(R.id.tv_ttcn_gioitinh);
         tv_sdt = findViewById(R.id.tv_ttcn_sdt);
+        tv_tennguoidung=findViewById(R.id.tenguoidung);
     }
 
     public void OnTab() {
