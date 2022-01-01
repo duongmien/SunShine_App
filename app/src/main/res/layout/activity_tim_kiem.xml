@@ -29,23 +29,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_marginLeft="11dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/btn_back"
             android:backgroundTint="@color/orange"
             android:hint="Tìm kiếm ở đây..." />
+
+        <ImageView
+            android:id="@+id/iconmic"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/search_text"
+            android:src="@drawable/ic_baseline_mic_none_24" />
+
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/header_search_page">
+        android:layout_below="@id/header_search_page"
+        android:layout_alignParentBottom="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleview_danhsach"
                 android:layout_width="match_parent"
