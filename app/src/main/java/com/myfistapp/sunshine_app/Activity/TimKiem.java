@@ -102,7 +102,7 @@ public class TimKiem extends AppCompatActivity {
 
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault() );
 
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Đang nghe  --__-- ");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Vui lòng nói món ăn bạn muốn... ");
 
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
